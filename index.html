@@ -1691,6 +1691,8 @@
         heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAs9d0e_-mLfIkWkvlAF5IPCKHyK0_EKHsRzWTCl7N6YsPfxn_2Y_bxKnGDkTwJ1S9N9KIdrjshElhBtAGZuXUh0kWKayYHlHHLONzZX2JjvzS69QhwkMhbVP3aiuLsYS9U4RnNPHKyyLV4gjyr_cY6KfOUHBDI0IlZzjFN38MKAwFnLhg0Gfd1ChsTwjXH5Xe1OHB_FR1MlJ_7v4xiMazKq3XZ2wGnb35U0xCjZMuKECsZDgtRlikS3Un4pHW5MngzHCAy7t-E1ury",
         gallery: [
           "phmp1.jpg",
+          "phmp1.jpg",
+          "phmp1.jpg",
           "phmp1.jpg"
         ],
         tools: ["Adobe Photoshop", "Adobe Illustrator", "CorelDRAW", "Canva"],
@@ -2133,63 +2135,80 @@
             </div>
 
             <!-- Deliverables -->
-            <div class="lg:col-span-5">
-              <div class="p-6 sm:p-7 rounded-2xl bg-[#F1F4FF] dark:bg-[#1A2234] border border-[#2D46EC]/20 dark:border-[#5B73FF]/30 shadow-sm sticky top-24">
-                <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF] mb-4">
-                  ${t["detail.sec4"]}
-                </h3>
-                <ul class="space-y-3">
-                  ${p.deliverables.map(item => `
-                    <li class="flex items-start gap-2.5 text-sm sm:text-base text-neutral-800 dark:text-[#F3F5F8]">
-                      <span class="w-5 h-5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] text-white flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
-                      <span>${item}</span>
-                    </li>
-                  `).join('')}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Gallery Section (Rendered above Previous / Next Navigation) -->
-          ${projectBase.gallery && projectBase.gallery.length > 0 ? `
-            <div class="mb-12 pt-8 border-t border-black/10 dark:border-white/10">
-              <div class="mb-5 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
-                <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF]">
-                  ${t["detail.galleryTitle"]}
-                </span>
-              </div>
-
-              <div class="space-y-6 sm:space-y-8">
-                ${projectBase.gallery.map((imgSrc, idx) => `
-                  <div class="overflow-hidden rounded-2xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 p-2 sm:p-3 shadow-md hover:shadow-xl transition-shadow">
-                    <img 
-                      src="${imgSrc}" 
-                      alt="${projectBase.title} — Visual ${idx + 1}" 
-                      class="w-full h-auto rounded-xl object-cover block"
-                      loading="lazy"
-                    />
-                  </div>
+          <div class="lg:col-span-5">
+            <div class="p-6 sm:p-7 rounded-2xl bg-[#F1F4FF] dark:bg-[#1A2234] border border-[#2D46EC]/20 dark:border-[#5B73FF]/30 shadow-sm sticky top-24">
+              <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF] mb-4">
+                ${t["detail.sec4"]}
+              </h3>
+              <ul class="space-y-3">
+                ${p.deliverables.map(item => `
+                  <li class="flex items-start gap-2.5 text-sm sm:text-base text-neutral-800 dark:text-[#F3F5F8]">
+                    <span class="w-5 h-5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] text-white flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                    <span>${item}</span>
+                  </li>
                 `).join('')}
-              </div>
+              </ul>
             </div>
-          ` : ''}
-
-          <!-- Bottom Navigation: Compact & Positioned to Left & Right Corners -->
-          <div class="pt-8 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-            <button onclick="openProjectDetail('${prevProject.id}')" type="button" class="text-left px-5 py-3.5 rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group max-w-sm">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-neutral-400 dark:text-[#9BA5B7] block">← ${t["detail.prev"]}</span>
-              <span class="font-display font-bold text-sm sm:text-base text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block truncate">${prevProject.title}</span>
-            </button>
-            <button onclick="openProjectDetail('${nextProject.id}')" type="button" class="text-right px-5 py-3.5 rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group max-w-sm sm:ml-auto">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-neutral-400 dark:text-[#9BA5B7] block">${t["detail.next"]} →</span>
-              <span class="font-display font-bold text-sm sm:text-base text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block truncate">${nextProject.title}</span>
-            </button>
           </div>
         </div>
-      `;
 
-      document.getElementById('portfolio-main-view').classList.add('hidden');
+        <!-- Project Gallery Section: 2 Columns on Mobile, 3 Columns on Desktop, with Landscape Span Support -->
+        ${projectBase.gallery && projectBase.gallery.length > 0 ? `
+          <div class="mb-10 sm:mb-12 pt-8 border-t border-black/10 dark:border-white/10">
+            <div class="mb-5 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
+              <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF]">
+                ${t["detail.galleryTitle"]}
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
+              ${projectBase.gallery.map((item, idx) => {
+                const isObj = typeof item === 'object' && item !== null;
+                const imgSrc = isObj ? item.url : item;
+                const isLandscape = isObj && (item.span === 2 || item.span === 'full' || item.aspect === 'landscape');
+                const isFull = isObj && item.span === 'full';
+
+                const colSpanClass = isFull 
+                  ? 'col-span-2 md:col-span-3' 
+                  : (isLandscape ? 'col-span-2 md:col-span-2' : 'col-span-1 md:col-span-1');
+
+                const aspectClass = (isLandscape || isFull) 
+                  ? 'aspect-[16/9] sm:aspect-[16/9]' 
+                  : 'aspect-square sm:aspect-[4/5]';
+
+                return `
+                  <div class="${colSpanClass} group relative overflow-hidden rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 p-1.5 sm:p-2 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div class="${aspectClass} w-full overflow-hidden rounded-lg bg-neutral-100 dark:bg-[#151A23]">
+                      <img 
+                        src="${imgSrc}" 
+                        alt="${projectBase.title} — Visual ${idx + 1}" 
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- Bottom Navigation: Compact 2-Column Grid on Mobile (Side-by-Side), Corner Pill Cards on Desktop -->
+        <div class="pt-6 sm:pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-between sm:gap-4 w-full">
+          <button onclick="openProjectDetail('${prevProject.id}')" type="button" class="text-left p-2.5 sm:px-5 sm:py-3.5 rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group w-full min-w-0 overflow-hidden sm:max-w-xs flex flex-col justify-center">
+            <span class="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-widest text-neutral-400 dark:text-[#9BA5B7] block truncate w-full">← ${t["detail.prev"]}</span>
+            <span class="font-display font-bold text-[11px] sm:text-sm text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block line-clamp-1 truncate w-full break-words">${prevProject.title}</span>
+          </button>
+          <button onclick="openProjectDetail('${nextProject.id}')" type="button" class="text-right p-2.5 sm:px-5 sm:py-3.5 rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group w-full min-w-0 overflow-hidden sm:max-w-xs sm:ml-auto flex flex-col justify-center items-end">
+            <span class="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-widest text-neutral-400 dark:text-[#9BA5B7] block truncate w-full">${t["detail.next"]} →</span>
+            <span class="font-display font-bold text-[11px] sm:text-sm text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block line-clamp-1 truncate w-full break-words">${nextProject.title}</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('portfolio-main-view').classList.add('hidden');
       document.getElementById('project-detail-view').classList.remove('hidden');
 
       if (updateHash) history.pushState({ projectId }, '', `#project-${projectId}`);
