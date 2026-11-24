@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="id">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -8,9 +8,10 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,500;0,600;0,700;0,800;1,700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  
-  <!-- Immediate theme execution: Strict Light Mode as Primary Default -->
+
+  <!-- Immediate theme execution before paint -->
   <script>
+    // @ts-nocheck
     (function() {
       try {
         const saved = localStorage.getItem('theme');
@@ -42,9 +43,9 @@
             "neutral-muted": "#555555",
             "subtle-blue": "#F1F4FF",
             dark: {
-              bg: "#0F1218",
-              subtle: "#151A23",
-              surface: "#1C222E",
+              bg: "#0D1117",
+              subtle: "#090D14",
+              surface: "#151D2C",
               border: "rgba(255, 255, 255, 0.10)",
               text: "#F3F5F8",
               muted: "#9BA5B7",
@@ -70,20 +71,22 @@
         overflow-x: hidden;
       }
     }
+
     body, section, header, footer, div, h1, h2, h3, h4, p, span, a, article, details, button {
       transition-property: background-color, border-color, color;
       transition-duration: 200ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     img, video, iframe, canvas {
       filter: none !important;
       -webkit-filter: none !important;
     }
 
-    /* Scroll reveal with Pop-Up / Scale-Up */
+    /* Scroll reveal animation */
     .reveal-item {
       opacity: 0;
-      transform: translateY(32px) scale(0.96);
+      transform: translateY(28px) scale(0.97);
       transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
@@ -96,9 +99,8 @@
     .delay-150 { transition-delay: 150ms; }
     .delay-200 { transition-delay: 200ms; }
     .delay-250 { transition-delay: 250ms; }
-    .delay-300 { transition-delay: 300ms; }
 
-    /* Animated Skill bars */
+    /* Animated skill progress bars */
     .skill-bar {
       width: 0% !important;
       transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -118,7 +120,7 @@
 
     .site-section {
       position: relative;
-      scroll-margin-top: 100px;
+      scroll-margin-top: 90px;
     }
 
     .section-grid-layer {
@@ -132,18 +134,18 @@
 
     .grid-emphasized {
       background-image:
-        linear-gradient(to right, transparent 23.25px, rgba(45, 70, 236, 0.10) 23.25px),
-        linear-gradient(to bottom, transparent 23.25px, rgba(45, 70, 236, 0.10) 23.25px),
-        linear-gradient(to right, transparent 95px, rgba(45, 70, 236, 0.16) 95px),
-        linear-gradient(to bottom, transparent 95px, rgba(45, 70, 236, 0.16) 95px);
+        linear-gradient(to right, transparent 23.25px, rgba(45, 70, 236, 0.09) 23.25px),
+        linear-gradient(to bottom, transparent 23.25px, rgba(45, 70, 236, 0.09) 23.25px),
+        linear-gradient(to right, transparent 95px, rgba(45, 70, 236, 0.15) 95px),
+        linear-gradient(to bottom, transparent 95px, rgba(45, 70, 236, 0.15) 95px);
     }
 
     .grid-subtle {
       background-image:
-        linear-gradient(to right, transparent 23.25px, rgba(45, 70, 236, 0.06) 23.25px),
-        linear-gradient(to bottom, transparent 23.25px, rgba(45, 70, 236, 0.06) 23.25px),
-        linear-gradient(to right, transparent 95px, rgba(45, 70, 236, 0.11) 95px),
-        linear-gradient(to bottom, transparent 95px, rgba(45, 70, 236, 0.11) 95px);
+        linear-gradient(to right, transparent 23.25px, rgba(45, 70, 236, 0.05) 23.25px),
+        linear-gradient(to bottom, transparent 23.25px, rgba(45, 70, 236, 0.05) 23.25px),
+        linear-gradient(to right, transparent 95px, rgba(45, 70, 236, 0.10) 95px),
+        linear-gradient(to bottom, transparent 95px, rgba(45, 70, 236, 0.10) 95px);
     }
 
     .grid-contact-white {
@@ -156,43 +158,35 @@
 
     .dark .grid-emphasized {
       background-image:
-        linear-gradient(to right, transparent 23.25px, rgba(91, 115, 255, 0.11) 23.25px),
-        linear-gradient(to bottom, transparent 23.25px, rgba(91, 115, 255, 0.11) 23.25px),
-        linear-gradient(to right, transparent 95px, rgba(91, 115, 255, 0.18) 95px),
-        linear-gradient(to bottom, transparent 95px, rgba(91, 115, 255, 0.18) 95px);
+        linear-gradient(to right, transparent 23.25px, rgba(91, 115, 255, 0.10) 23.25px),
+        linear-gradient(to bottom, transparent 23.25px, rgba(91, 115, 255, 0.10) 23.25px),
+        linear-gradient(to right, transparent 95px, rgba(91, 115, 255, 0.16) 95px),
+        linear-gradient(to bottom, transparent 95px, rgba(91, 115, 255, 0.16) 95px);
     }
 
     .dark .grid-subtle {
       background-image:
         linear-gradient(to right, transparent 23.25px, rgba(91, 115, 255, 0.06) 23.25px),
         linear-gradient(to bottom, transparent 23.25px, rgba(91, 115, 255, 0.06) 23.25px),
-        linear-gradient(to right, transparent 95px, rgba(91, 115, 255, 0.12) 95px),
-        linear-gradient(to bottom, transparent 95px, rgba(91, 115, 255, 0.12) 95px);
-    }
-
-    .dark .grid-contact-white {
-      background-image:
-        linear-gradient(to right, transparent 23.25px, rgba(255, 255, 255, 0.08) 23.25px),
-        linear-gradient(to bottom, transparent 23.25px, rgba(255, 255, 255, 0.08) 23.25px),
-        linear-gradient(to right, transparent 95px, rgba(255, 255, 255, 0.15) 95px),
-        linear-gradient(to bottom, transparent 95px, rgba(255, 255, 255, 0.15) 95px);
+        linear-gradient(to right, transparent 95px, rgba(91, 115, 255, 0.11) 95px),
+        linear-gradient(to bottom, transparent 95px, rgba(91, 115, 255, 0.11) 95px);
     }
 
     #global-cursor-glow {
       opacity: 0;
       transition: opacity 0.4s ease;
-      background: radial-gradient(circle 420px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(45,70,236,0.14) 0%, rgba(45,70,236,0.09) 25%, rgba(45,70,236,0.04) 50%, transparent 100%);
+      background: radial-gradient(circle 420px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(45,70,236,0.13) 0%, rgba(45,70,236,0.07) 30%, transparent 100%);
       mix-blend-mode: multiply;
       will-change: background;
     }
 
     .dark #global-cursor-glow {
-      background: radial-gradient(circle 420px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(91,115,255,0.22) 0%, rgba(91,115,255,0.12) 25%, rgba(91,115,255,0.05) 50%, transparent 100%);
+      background: radial-gradient(circle 420px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(91,115,255,0.20) 0%, rgba(91,115,255,0.10) 30%, transparent 100%);
       mix-blend-mode: screen;
     }
 
     #global-cursor-glow.in-contact {
-      background: radial-gradient(circle 420px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 25%, rgba(255,255,255,0.05) 50%, transparent 100%) !important;
+      background: radial-gradient(circle 420px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.10) 30%, transparent 100%) !important;
       mix-blend-mode: screen !important;
     }
 
@@ -231,28 +225,23 @@
       animation: viewEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Stacked Deck Carousel Styles */
+    /* 3D Stacked Deck Carousel Styles */
     .stack-stage {
       position: relative;
       width: 100%;
-      height: 345px;
+      height: 360px;
       perspective: 1200px;
     }
     @media (min-width: 480px) {
-      .stack-stage {
-        height: 375px;
-      }
+      .stack-stage { height: 390px; }
     }
     @media (min-width: 640px) {
-      .stack-stage {
-        height: 420px;
-      }
+      .stack-stage { height: 460px; }
     }
     @media (min-width: 1024px) {
-      .stack-stage {
-        height: 440px;
-      }
+      .stack-stage { height: 510px; }
     }
+
     .stack-card {
       position: absolute;
       top: 0;
@@ -268,7 +257,7 @@
       background-color: #FFFFFF !important;
     }
     .dark .stack-card {
-      background-color: #1C222E !important;
+      background-color: #151D2C !important;
     }
     .stack-card:active {
       cursor: grabbing;
@@ -277,7 +266,6 @@
       transition: none !important;
     }
 
-    /* Clear Left & Right Balanced Offset with Natural Tilts */
     .stack-card[data-pos="0"] {
       transform: translate3d(-50%, 0, 40px) rotate(0deg) scale(1);
       z-index: 30;
@@ -287,10 +275,9 @@
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
     }
     .dark .stack-card[data-pos="0"] {
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
     }
 
-    /* Next Card (Right) - Tilted Right */
     .stack-card[data-pos="1"] {
       transform: translate3d(calc(-50% + 95px), 8px, 10px) rotate(3.5deg) scale(0.91);
       z-index: 20;
@@ -303,7 +290,6 @@
       box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
 
-    /* Prev Card (Left) - Tilted Left */
     .stack-card[data-pos="-1"] {
       transform: translate3d(calc(-50% - 95px), 8px, 10px) rotate(-3.5deg) scale(0.91);
       z-index: 20;
@@ -333,7 +319,6 @@
       pointer-events: none;
     }
 
-    /* Completely hide metadata on side cards to eliminate all ghosting & text bleed-through */
     .stack-card:not([data-pos="0"]) .card-meta {
       opacity: 0 !important;
       pointer-events: none !important;
@@ -351,25 +336,25 @@
   </style>
 </head>
 
-<body class="bg-[#F8F8F5] dark:bg-[#0F1218] text-[#111111] dark:text-[#F3F5F8] font-sans antialiased selection:bg-[#2D46EC] selection:text-white pt-16 sm:pt-20">
+<body class="bg-[#F8F8F5] dark:bg-[#0D1117] text-[#111111] dark:text-[#F3F5F8] font-sans antialiased selection:bg-[#2D46EC] selection:text-white pt-16 sm:pt-20">
 
-  <!-- GLOBAL VIEWPORT-LEVEL CURSOR GLOW -->
+  <!-- GLOBAL CURSOR GLOW -->
   <div class="fixed inset-0 pointer-events-none transition-opacity duration-300" id="global-cursor-glow" style="z-index: 5;"></div>
 
   <!-- ================================================================= -->
-  <!-- 1. STICKY NAVIGATION HEADER (Desktop + Responsive Mobile Drawer)  -->
+  <!-- 1. NAVIGATION HEADER                                              -->
   <!-- ================================================================= -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#2D46EC] dark:bg-[#131824]/95 shadow-md border-b border-white/15 dark:border-white/10 backdrop-blur-md" id="main-header">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#2D46EC] dark:bg-[#0B0E14]/95 shadow-md border-b border-white/15 dark:border-white/10 backdrop-blur-md" id="main-header">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      
-      <!-- Brand / Home Monogram Badge -->
+
+      <!-- NAF Brand Badge -->
       <a href="#hero" onclick="returnToPortfolio('#hero', event)" aria-label="Naufal Aditya Fahrezi Home" class="flex items-center group focus:outline-none">
         <span class="w-9 h-9 rounded-lg bg-white text-[#2D46EC] dark:bg-[#5B73FF] dark:text-white font-display font-extrabold text-xs flex items-center justify-center tracking-tighter shadow-sm border border-white/20 group-hover:scale-105 active:scale-95 transition-transform">
           NAF
         </span>
       </a>
 
-      <!-- Center Desktop Navigation -->
+      <!-- Desktop Navigation -->
       <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-medium tracking-wide text-white/90" id="nav-container">
         <a class="nav-link relative py-1 hover:text-white transition-colors group" href="#work" onclick="scrollToTargetSection('#work', event)">
           <span data-i18n="nav.work">Work</span>
@@ -401,18 +386,17 @@
         </a>
       </nav>
 
-      <!-- Right Controls -->
+      <!-- Right Header Controls -->
       <div class="flex items-center gap-2">
         <!-- Resume Button -->
         <button onclick="openResumeModal()" type="button" class="magnetic-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/80 dark:border-[#5B73FF]/80 bg-transparent dark:bg-[#5B73FF]/15 text-[11px] font-semibold uppercase tracking-wider text-white hover:bg-white hover:text-[#2D46EC] dark:hover:bg-[#5B73FF] dark:hover:text-white transition-all duration-300 shadow-sm group">
-          <span data-i18n="nav.resume">Resume</span>
+          <span>CV</span>
           <span class="text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
         </button>
 
-        <!-- Compact Pill Language Switcher (EN / ID) -->
-        <button onclick="toggleLanguage()" id="lang-toggle" type="button" aria-label="Switch language" title="Switch Language (EN / ID)" class="h-8 px-2.5 rounded-full border border-white/40 dark:border-white/20 bg-white/10 hover:bg-white/20 active:scale-95 text-[11px] font-mono font-bold text-white inline-flex items-center gap-1.5 transition-all focus:outline-none shadow-sm">
-          <!-- UK Flag SVG -->
-          <svg id="lang-flag-en" class="w-4 h-4 rounded-full shrink-0 shadow-sm ring-1 ring-white/30" viewBox="0 0 60 60">
+        <!-- Language Switcher (ID / EN) -->
+        <button onclick="toggleLanguage()" id="lang-toggle" type="button" aria-label="Switch language" title="Switch Language (ID / EN)" class="h-8 px-2.5 rounded-full border border-white/40 dark:border-white/20 bg-white/10 hover:bg-white/20 active:scale-95 text-[11px] font-mono font-bold text-white inline-flex items-center gap-1.5 transition-all focus:outline-none shadow-sm">
+          <svg id="lang-flag-en" class="w-4 h-4 rounded-full shrink-0 shadow-sm ring-1 ring-white/30 hidden" viewBox="0 0 60 60">
             <clipPath id="uk-clip"><circle cx="30" cy="30" r="30"/></clipPath>
             <g clip-path="url(#uk-clip)">
               <rect width="60" height="60" fill="#012169"/>
@@ -422,18 +406,17 @@
               <path d="M30,0 V60 M0,30 H60" stroke="#C8102E" stroke-width="10"/>
             </g>
           </svg>
-          <!-- Indonesia Flag SVG -->
-          <svg id="lang-flag-id" class="w-4 h-4 rounded-full shrink-0 shadow-sm ring-1 ring-white/30 hidden" viewBox="0 0 60 60">
+          <svg id="lang-flag-id" class="w-4 h-4 rounded-full shrink-0 shadow-sm ring-1 ring-white/30" viewBox="0 0 60 60">
             <clipPath id="id-clip"><circle cx="30" cy="30" r="30"/></clipPath>
             <g clip-path="url(#id-clip)">
               <rect width="60" height="30" fill="#E70011"/>
               <rect y="30" width="60" height="30" fill="#FFFFFF"/>
             </g>
           </svg>
-          <span id="lang-active-code" class="tracking-tight leading-none">EN</span>
+          <span id="lang-active-code" class="tracking-tight leading-none">ID</span>
         </button>
 
-        <!-- Desktop Theme Toggle Button -->
+        <!-- Desktop Theme Toggle -->
         <button aria-label="Switch theme" class="hidden lg:flex w-8 h-8 rounded-full border border-white/40 dark:border-white/20 bg-white/10 hover:bg-white/20 active:scale-95 text-white items-center justify-center transition-all focus:outline-none focus:ring-2 focus:ring-white/70" id="theme-toggle" type="button">
           <svg id="theme-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
@@ -444,7 +427,7 @@
           </svg>
         </button>
 
-        <!-- Mobile Hamburger Button -->
+        <!-- Mobile Menu Button -->
         <button aria-label="Toggle Navigation Menu" aria-expanded="false" id="mobile-menu-btn" type="button" class="lg:hidden w-8 h-8 rounded-full border border-white/40 dark:border-white/20 bg-white/10 hover:bg-white/20 active:scale-95 text-white flex items-center justify-center transition-all focus:outline-none">
           <svg id="hamburger-open-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
@@ -457,26 +440,26 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu-drawer" class="hidden lg:hidden bg-[#2338C6] dark:bg-[#131824] border-t border-white/15 dark:border-white/10 px-5 py-4 shadow-2xl">
+    <div id="mobile-menu-drawer" class="hidden lg:hidden bg-[#2338C6] dark:bg-[#0B0E14] border-t border-white/15 dark:border-white/10 px-5 py-4 shadow-2xl">
       <div class="flex flex-col space-y-1 text-sm font-semibold text-white">
         <a href="#work" onclick="scrollToTargetSection('#work', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
-          <span data-i18n="mobile.work">Selected Works</span>
+          <span data-i18n="mobile.work">Karya Pilihan</span>
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
         <a href="#about" onclick="scrollToTargetSection('#about', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
-          <span data-i18n="mobile.about">About</span>
+          <span data-i18n="mobile.about">Tentang</span>
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
         <a href="#experience" onclick="scrollToTargetSection('#experience', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
-          <span data-i18n="mobile.experience">Experience</span>
+          <span data-i18n="mobile.experience">Pengalaman</span>
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
         <a href="#education" onclick="scrollToTargetSection('#education', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
-          <span data-i18n="mobile.education">Education</span>
+          <span data-i18n="mobile.education">Pendidikan</span>
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
         <a href="#skills" onclick="scrollToTargetSection('#skills', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
-          <span data-i18n="mobile.skills">Tools &amp; Skills</span>
+          <span data-i18n="mobile.skills">Aplikasi &amp; Keahlian</span>
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
         <a href="#faq" onclick="scrollToTargetSection('#faq', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
@@ -484,13 +467,13 @@
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
         <a href="#contact" onclick="scrollToTargetSection('#contact', event); closeMobileMenu();" class="py-2.5 px-3 rounded-lg hover:bg-white/10 flex items-center justify-between">
-          <span data-i18n="mobile.contact">Contact</span>
+          <span data-i18n="mobile.contact">Kontak</span>
           <span class="font-mono text-xs text-white/60">→</span>
         </a>
 
         <!-- Mobile Theme Switcher Row -->
         <div class="pt-3 mt-2 border-t border-white/15 flex items-center justify-between px-3 py-2">
-          <span class="text-xs font-mono uppercase tracking-wider text-white/80" data-i18n="mobile.themeLabel">Appearance</span>
+          <span class="text-xs font-mono uppercase tracking-wider text-white/80" data-i18n="mobile.themeLabel">Tampilan</span>
           <button id="mobile-theme-toggle" type="button" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 text-xs font-semibold text-white transition-all active:scale-95">
             <svg id="mobile-theme-icon-moon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
@@ -499,7 +482,7 @@
               <circle cx="12" cy="12" r="5"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
             </svg>
-            <span id="mobile-theme-text" data-i18n="mobile.darkMode">Dark Mode</span>
+            <span id="mobile-theme-text" data-i18n="mobile.darkMode">Mode Gelap</span>
           </button>
         </div>
       </div>
@@ -507,20 +490,20 @@
   </header>
 
   <!-- ================================================================= -->
-  <!-- MAIN PORTFOLIO VIEW (HOME)                                        -->
+  <!-- MAIN PORTFOLIO VIEW                                               -->
   <!-- ================================================================= -->
   <main class="w-full" id="portfolio-main-view">
-    
+
     <!-- =============================================================== -->
     <!-- 2. HERO SECTION                                                 -->
     <!-- =============================================================== -->
-    <section class="site-section bg-[#F8F8F5] dark:bg-[#0F1218] border-b border-black/10 dark:border-white/10 pt-5 pb-16 sm:pt-10 sm:pb-24 lg:pt-20 lg:pb-32 overflow-hidden" id="hero">
+    <section class="site-section bg-[#F8F8F5] dark:bg-[#0D1117] border-b border-black/10 dark:border-white/10 pt-5 pb-16 sm:pt-10 sm:pb-24 lg:pt-20 lg:pb-32 overflow-hidden" id="hero">
       <div class="section-grid-layer grid-emphasized"></div>
-      
+
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
-        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-12 items-center">
-          
-          <!-- Photo Column -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-12 items-center">
+
+          <!-- Layered Hero Artwork Column -->
           <div class="order-1 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end reveal-item is-revealed mt-1 mb-0 lg:my-0" id="hero-art-container">
             <div class="relative w-full max-w-[270px] sm:max-w-[330px] lg:max-w-[420px] h-[270px] sm:h-[330px] lg:h-[450px] flex items-center justify-center select-none mx-auto">
               <div class="relative w-full h-full">
@@ -536,7 +519,7 @@
                 <div class="hero-art-layer absolute left-2 sm:left-5 top-[52%] sm:top-[50%] w-[94%] z-40 pointer-events-none" data-speed="0.05" style="transform: translate3d(0px, 0px, 0px) rotate(-1.5deg);">
                   <img alt="Photoshop Contextual Taskbar" class="w-full h-auto drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqGL0LfIsEP1h02wi3PXf1MZvgJbIiCwT5xFMUp6fGTemoHsXOF5frG6VZk8oSXaJ0kg7iCWql5Oe-BrvRUMkMIfduJ8-XPvkE0CYrn7lYz7GH7nUpqgJ7jBhgX1m5nqSCP1PToHOo5Ne8wSfqwayo0QCIapLHFzzL7zYsqtNaVkr4K4tUORFTur5ACO4Zj3gZcL8uMy3dp_cGipg87rQxh8INvkJXGLKmr-BXTYcEwJSdQ0tH5l0vDv_ZKbiG2gtB"/>
                 </div>
-                <!-- Floating Tag Badge -->
+                <!-- Floating Handle Badge -->
                 <div class="hero-art-layer float-badge absolute left-2 sm:left-3 z-50 top-[63%] sm:top-[60%]" data-speed="-0.02">
                   <span class="inline-block px-3 py-1 bg-[#2D46EC] dark:bg-[#5B73FF] text-white text-[11px] font-mono font-medium tracking-tight rounded-full shadow-lg">
                     @naufaladity_
@@ -546,26 +529,26 @@
             </div>
           </div>
 
-          <!-- Text Column -->
+          <!-- Hero Text Column -->
           <div class="order-2 lg:order-1 lg:col-span-7 flex flex-col justify-center -mt-1 sm:mt-0">
             <div class="inline-flex items-center gap-2 mb-2.5">
               <span class="h-1.5 w-1.5 bg-[#2D46EC] dark:bg-[#5B73FF] animate-pulse"></span>
               <span class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="hero.badge">
-                PORTFOLIO 2027
+                PORTOFOLIO 2027
               </span>
             </div>
 
-            <h1 class="reveal-item font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#111111] dark:text-[#F3F5F8] tracking-tight leading-[1.06] is-revealed">
-              <span data-i18n="hero.title1">Graphic Designer,</span> <br/>
-              <span class="text-[#2D46EC] dark:text-[#5B73FF] transition-colors duration-300" data-i18n="hero.title2">Video &amp; Photo Editor</span>
+            <h1 class="reveal-item font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#111111] dark:text-[#F3F5F8] tracking-tight leading-[1.08] is-revealed">
+              <span data-i18n="hero.title1">Desainer Grafis,</span> <br/>
+              <span class="text-[#2D46EC] dark:text-[#5B73FF] transition-colors duration-300" data-i18n="hero.title2">Editor Video &amp; Foto</span>
             </h1>
-            
+
             <p class="reveal-item delay-100 text-lg sm:text-2xl font-semibold text-neutral-800 dark:text-[#F3F5F8] mt-3 sm:mt-4 mb-2 font-display is-revealed">
               Naufal Aditya Fahrezi
             </p>
-            
-            <p class="reveal-item delay-150 text-sm sm:text-lg text-[#555555] dark:text-[#9BA5B7] max-w-xl leading-relaxed is-revealed" data-i18n="hero.desc">
-              Menciptakan konten visual melalui desain grafis, pengeditan video, dan foto untuk brand, institusi, serta platform digital dengan pendekatan kreatif dan strategis.
+
+            <p class="reveal-item delay-150 text-sm sm:text-lg text-[#555555] dark:text-[#9BA5B7] max-w-xl leading-relaxed is-revealed font-normal" data-i18n="hero.desc">
+              Mengolah ide menjadi karya visual melalui desain grafis, fotografi, dan video editing untuk berbagai kebutuhan komunikasi, publikasi, dan konten digital.
             </p>
 
             <!-- Status Indicator -->
@@ -574,19 +557,19 @@
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 duration-1000"></span>
                 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-sm shadow-emerald-500/50"></span>
               </span>
-              <span class="tracking-wide" data-i18n="hero.status">Available for full-time opportunities &amp; freelance</span>
+              <span class="tracking-wide" data-i18n="hero.status">Tersedia untuk peluang kerja purnawaktu (full-time) &amp; freelance</span>
             </div>
 
             <!-- Action CTAs -->
             <div class="reveal-item delay-250 flex flex-wrap items-center gap-3.5 sm:gap-4 mt-6 sm:mt-8 is-revealed">
               <a class="magnetic-btn px-6 py-3.5 rounded-full bg-[#2D46EC] hover:bg-[#1f35cc] dark:bg-[#5B73FF] dark:hover:bg-[#7388FF] text-white text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-md hover:shadow-xl hover:shadow-[#2D46EC]/25 group" href="#work" onclick="scrollToTargetSection('#work', event)">
-                <span data-i18n="hero.ctaWork">VIEW MY WORK</span>
+                <span data-i18n="hero.ctaWork">LIHAT KARYA SAYA</span>
                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6"/>
                 </svg>
               </a>
-              <a class="magnetic-btn px-6 py-3.5 rounded-full border border-neutral-300 dark:border-white/15 hover:border-neutral-900 dark:hover:border-white bg-white/80 dark:bg-[#1C222E] text-neutral-900 dark:text-[#F3F5F8] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-1.5 shadow-sm hover:shadow-md group" href="#contact" onclick="scrollToTargetSection('#contact', event)">
-                <span data-i18n="hero.ctaContact">CONTACT ME</span>
+              <a class="magnetic-btn px-6 py-3.5 rounded-full border border-neutral-300 dark:border-white/15 hover:border-neutral-900 dark:hover:border-white bg-white/80 dark:bg-[#151D2C] text-neutral-900 dark:text-[#F3F5F8] text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-1.5 shadow-sm hover:shadow-md group" href="#contact" onclick="scrollToTargetSection('#contact', event)">
+                <span data-i18n="hero.ctaContact">HUBUNGI SAYA</span>
                 <span class="text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
               </a>
             </div>
@@ -597,13 +580,13 @@
     </section>
 
     <!-- =============================================================== -->
-    <!-- 3. SELECTED WORKS (STACKED DECK CAROUSEL)                       -->
+    <!-- 3. SELECTED WORKS (3D STACKED DECK CAROUSEL)                    -->
     <!-- =============================================================== -->
-    <section class="site-section border-b border-black/10 dark:border-white/10 py-12 sm:py-16 bg-[#F8F8F5] dark:bg-[#0F1218]" id="work">
+    <section class="site-section border-b border-black/10 dark:border-white/10 py-12 sm:py-16 bg-[#F8F8F5] dark:bg-[#090D14]" id="work">
       <div class="section-grid-layer grid-subtle"></div>
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
-        
-        <!-- Header & Filter Tabs -->
+
+        <!-- Section Header & Filter Buttons -->
         <div class="reveal-item flex flex-col sm:flex-row sm:items-end justify-between pb-4 sm:pb-5 gap-4 border-b border-black/10 dark:border-white/10 is-revealed">
           <div>
             <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-[#111111] dark:text-[#F3F5F8] tracking-tight">
@@ -614,37 +597,37 @@
             </p>
           </div>
 
-          <!-- Controls: Category Filters -->
+          <!-- Category Filter Controls -->
           <div class="flex items-center gap-3 self-start sm:self-auto">
-            <div class="flex flex-wrap items-center gap-1.5 p-1 bg-neutral-200/70 dark:bg-[#1C222E] border border-black/5 dark:border-white/10 rounded-full text-xs font-semibold text-neutral-600 dark:text-[#9BA5B7]" id="portfolio-filters">
+            <div class="flex flex-wrap items-center gap-1.5 p-1 bg-neutral-200/70 dark:bg-[#151D2C] border border-black/5 dark:border-white/10 rounded-full text-xs font-semibold text-neutral-600 dark:text-[#9BA5B7]" id="portfolio-filters">
               <button class="filter-btn px-4 py-1.5 rounded-full transition-all duration-300 bg-[#2D46EC] dark:bg-[#5B73FF] text-white shadow-sm" data-filter="all" type="button" data-i18n="work.filterAll">Semua (6)</button>
               <button class="filter-btn px-4 py-1.5 rounded-full transition-all duration-300 hover:text-neutral-900 dark:hover:text-white" data-filter="graphic" type="button" data-i18n="work.filterGraphic">Desain Grafis</button>
-              <button class="filter-btn px-4 py-1.5 rounded-full transition-all duration-300 hover:text-neutral-900 dark:hover:text-white" data-filter="video" type="button" data-i18n="work.filterVideo">Edit Video</button>
+              <button class="filter-btn px-4 py-1.5 rounded-full transition-all duration-300 hover:text-neutral-900 dark:hover:text-white" data-filter="video" type="button" data-i18n="work.filterVideo">Video &amp; Foto</button>
             </div>
           </div>
         </div>
 
-        <!-- Stacked Deck Carousel Container -->
+        <!-- Carousel Stage Wrapper -->
         <div class="relative w-full max-w-4xl mx-auto mt-4 sm:mt-5 select-none" id="carousel-outer-wrapper">
-          
-          <!-- Floating Left & Right Arrows -->
-          <button onclick="navigateSlide(-1)" type="button" aria-label="Previous Project" class="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/15 text-neutral-800 dark:text-[#F3F5F8] items-center justify-center shadow-lg hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:text-[#2D46EC] active:scale-95 transition-all">
+
+          <!-- Desktop Left & Right Navigation Arrows -->
+          <button onclick="navigateSlide(-1)" type="button" aria-label="Previous Project" class="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 text-neutral-800 dark:text-[#F3F5F8] items-center justify-center shadow-lg hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:text-[#2D46EC] active:scale-95 transition-all">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
           </button>
-          <button onclick="navigateSlide(1)" type="button" aria-label="Next Project" class="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/15 text-neutral-800 dark:text-[#F3F5F8] items-center justify-center shadow-lg hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:text-[#2D46EC] active:scale-95 transition-all">
+          <button onclick="navigateSlide(1)" type="button" aria-label="Next Project" class="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 text-neutral-800 dark:text-[#F3F5F8] items-center justify-center shadow-lg hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:text-[#2D46EC] active:scale-95 transition-all">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
             </svg>
           </button>
 
-          <!-- 3D Card Stage -->
+          <!-- 3D Card Stack -->
           <div class="stack-stage" id="stack-carousel-stage">
-            
-            <!-- Card 1: UNAIR Humas -->
-            <article data-project="unair-humas" data-category="graphic" onclick="handleCardInteraction('unair-humas', this, event)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
-              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#151A23] border border-black/5 dark:border-white/10 relative">
+
+            <!-- Card 1: PHMP UNAIR -->
+            <article data-project="unair-humas" data-category="graphic" onclick="handleCardInteraction('unair-humas', this)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
+              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#0D1117] border border-black/5 dark:border-white/10 relative">
                 <img alt="Pusat Humas dan Protokol UNAIR" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs9d0e_-mLfIkWkvlAF5IPCKHyK0_EKHsRzWTCl7N6YsPfxn_2Y_bxKnGDkTwJ1S9N9KIdrjshElhBtAGZuXUh0kWKayYHlHHLONzZX2JjvzS69QhwkMhbVP3aiuLsYS9U4RnNPHKyyLV4gjyr_cY6KfOUHBDI0IlZzjFN38MKAwFnLhg0Gfd1ChsTwjXH5Xe1OHB_FR1MlJ_7v4xiMazKq3XZ2wGnb35U0xCjZMuKECsZDgtRlikS3Un4pHW5MngzHCAy7t-E1ury"/>
               </div>
               <div class="card-meta transition-opacity duration-300">
@@ -656,7 +639,7 @@
                 </div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div class="flex items-center gap-2">
-                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]">BRANDING</span>
+                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]" data-i18n="work.tagPhmp">PUBLIKASI &amp; MEDIA</span>
                     <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="work.card1Sub">Desain Grafis &amp; Infografis</p>
                   </div>
                   <span class="text-xs font-mono font-bold text-[#2D46EC] dark:text-[#5B73FF] whitespace-nowrap" data-i18n="work.readMore">Lihat Proyek →</span>
@@ -665,20 +648,20 @@
             </article>
 
             <!-- Card 2: Moslem Cinematic -->
-            <article data-project="moslem-cinematic" data-category="video" onclick="handleCardInteraction('moslem-cinematic', this, event)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
-              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#151A23] border border-black/5 dark:border-white/10 relative">
+            <article data-project="moslem-cinematic" data-category="video" onclick="handleCardInteraction('moslem-cinematic', this)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
+              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#0D1117] border border-black/5 dark:border-white/10 relative">
                 <img alt="Moslem Cinematic" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXUFS2dFmg2zkuMs12LmaP5hXNLnposcSZTYONnBurBtulb-X6a2fJNWy8ngzhX1WL5kIIO3NPNunMt4ndmi9iyIace-XRyRQCDCGebU_E3IuaICL-NEhja5WBoIxzitqGLjBMGEcc7l-VNdrITwOorQpuakIkFNyonzZdBuOXQ21TlDFUVAGZbfe1G5TGhUO1grRH8z6AFsRBNGwGu5TfW94Xo4zXahYZTvPmjW6yrtztiYwY5ndVCzYsUOfOvZxm"/>
               </div>
               <div class="card-meta transition-opacity duration-300">
                 <div class="mt-3 sm:mt-4 flex items-start justify-between gap-2">
                   <h3 class="font-display font-bold text-base sm:text-xl text-neutral-900 dark:text-[#F3F5F8] leading-snug flex-1 min-w-0 pr-2">
-                    Moslem Cinematic (Moslem Travel)
+                    Moslem Cinematic (PT Moslem Travel Indonesia)
                   </h3>
                   <span class="font-mono text-[11px] sm:text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7] text-right shrink-0 max-w-[105px] sm:max-w-none leading-tight" data-i18n="work.card2Date">Des 2025 – <br class="sm:hidden"/>Sekarang</span>
                 </div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div class="flex items-center gap-2">
-                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]">COMMERCIAL</span>
+                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]" data-i18n="work.tagMoslem">VIDEO &amp; FOTO KOMERSIAL</span>
                     <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="work.card2Sub">Editor Foto &amp; Video</p>
                   </div>
                   <span class="text-xs font-mono font-bold text-[#2D46EC] dark:text-[#5B73FF] whitespace-nowrap" data-i18n="work.readMore">Lihat Proyek →</span>
@@ -687,8 +670,8 @@
             </article>
 
             <!-- Card 3: AZKAL Apparel -->
-            <article data-project="azkal-apparel" data-category="graphic" onclick="handleCardInteraction('azkal-apparel', this, event)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
-              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#151A23] border border-black/5 dark:border-white/10 relative">
+            <article data-project="azkal-apparel" data-category="graphic" onclick="handleCardInteraction('azkal-apparel', this)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
+              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#0D1117] border border-black/5 dark:border-white/10 relative">
                 <img alt="AZKAL Apparel Lookbook" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBryl3BeOerc5_pTQuROYjM-RypW81icc225xZcS8EQZSIEWYuK_Y3U_1E-sufNgJf464gy4t1dJKVK10F4Ix5yUrBBm6cSbN-nqALy23GCPDgb89iAkFOwSoA-PY60YdiruMdxu1gEdlHoTaRKUvUORS3sXHHqfeCb_CPx4-cxQQWXUsO-TxKDU9vVvyZEMvUpdMbQ-CMmABOYdnpxUUI8qQmWC9XwMUvxx1tc4GMvwr6v6CP9OmbjEox7GZWqwM9bgiqM3Mt3zRqQ"/>
               </div>
               <div class="card-meta transition-opacity duration-300">
@@ -700,7 +683,7 @@
                 </div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div class="flex items-center gap-2">
-                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]">EDITORIAL</span>
+                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]" data-i18n="work.tagAzkal">KATALOG KOMERSIAL</span>
                     <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="work.card3Sub">Lookbook Fashion &amp; Identitas</p>
                   </div>
                   <span class="text-xs font-mono font-bold text-[#2D46EC] dark:text-[#5B73FF] whitespace-nowrap" data-i18n="work.readMore">Lihat Proyek →</span>
@@ -708,9 +691,9 @@
               </div>
             </article>
 
-            <!-- Card 4: MADESU -->
-            <article data-project="madesu-film" data-category="graphic" onclick="handleCardInteraction('madesu-film', this, event)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
-              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#151A23] border border-black/5 dark:border-white/10 relative">
+            <!-- Card 4: MADESU Film -->
+            <article data-project="madesu-film" data-category="video" onclick="handleCardInteraction('madesu-film', this)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
+              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#0D1117] border border-black/5 dark:border-white/10 relative">
                 <img alt="MADESU Short Film" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz4SD0JqIfXzo0bk8RRVDlWQSJ6c3sfseg6napO_p-0-1c8cNT5R3me4q9z-1e5YJpShlx3tyqJoQMrE8K4US8s-U8kIY1gdtJScB5bZreUHa36CWAoOgX5VtlH4oeX7b6NU9cbzRwgKR6cONljAc9RS3Wh1a7GUR3pv2t6nkwWinEfrGJnbPeVSnzKc9-rj7vCUAZJY8WlkTLd-ftig_V636trsdCViDvpGl_GF45P54TgTYRCpvCzOt2HwJLtqifLqL4QqMjFlwH"/>
               </div>
               <div class="card-meta transition-opacity duration-300">
@@ -722,7 +705,7 @@
                 </div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div class="flex items-center gap-2">
-                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]">CINEMA</span>
+                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]" data-i18n="work.tagMadesu">POSTER FILM</span>
                     <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="work.card4Sub">Poster Film &amp; Key Visual</p>
                   </div>
                   <span class="text-xs font-mono font-bold text-[#2D46EC] dark:text-[#5B73FF] whitespace-nowrap" data-i18n="work.readMore">Lihat Proyek →</span>
@@ -731,8 +714,8 @@
             </article>
 
             <!-- Card 5: Global Youth Ambassador -->
-            <article data-project="global-youth-ambassador" data-category="graphic" onclick="handleCardInteraction('global-youth-ambassador', this, event)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
-              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#151A23] border border-black/5 dark:border-white/10 relative">
+            <article data-project="global-youth-ambassador" data-category="graphic" onclick="handleCardInteraction('global-youth-ambassador', this)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
+              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#0D1117] border border-black/5 dark:border-white/10 relative">
                 <img alt="Global Youth Ambassador" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv8dSf278PixVqK9f6ZPdPTKCXUOW3gNYkmoAmXfXlzLNi3H3T6R0cm0YdMVKzuVy2x6AXXSoEH8mGeYqQcyANYtm4rLOXbw0eKOsUdDxpP193rWIwslVcuAT2_bCzQ7TnVAGmTrvjpfjE6RVUFhXuO5FD1NHuxTkzbzsXP6B1Ee9vYbCXcrsPM_FOL1_Pki5NuEjYmHUUZ4pthVLAFeKYGY4a2ZyNL5fZrgI-Xe8A-J3fLCzvGzN5qCRbmYdYRM9H2OppXap8cXdW"/>
               </div>
               <div class="card-meta transition-opacity duration-300">
@@ -744,7 +727,7 @@
                 </div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div class="flex items-center gap-2">
-                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]">CAMPAIGN</span>
+                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]" data-i18n="work.tagGya">ORGANISASI &amp; KAMPANYE</span>
                     <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="work.card5Sub">Media Sosial &amp; Materi Kampanye</p>
                   </div>
                   <span class="text-xs font-mono font-bold text-[#2D46EC] dark:text-[#5B73FF] whitespace-nowrap" data-i18n="work.readMore">Lihat Proyek →</span>
@@ -753,8 +736,8 @@
             </article>
 
             <!-- Card 6: Istanbul Youth Conference -->
-            <article data-project="istanbul-youth-conference" data-category="graphic" onclick="handleCardInteraction('istanbul-youth-conference', this, event)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
-              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#151A23] border border-black/5 dark:border-white/10 relative">
+            <article data-project="istanbul-youth-conference" data-category="graphic" onclick="handleCardInteraction('istanbul-youth-conference', this)" class="stack-card p-3 sm:p-4 border border-black/10 dark:border-white/15">
+              <div class="aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#0D1117] border border-black/5 dark:border-white/10 relative">
                 <img alt="Istanbul Youth Conference" class="w-full h-full object-cover pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB67u8DWoKQcBuMikF5XuuvIzRArQQPWgGMmpE7ptOXTykaz0NFoIuxiF7gjOojfilyNdyYfaMSYgm0wIYDcbr7tI_YseZr_6priW0N_sJ3-FVlM8V1Qje_NrrujwPWVuFpl0gsArQv-abKjl-FVa3FLHlR3b33IDP01thto8fUpxhuoUV7xwZzoTPxlRVFeiDOsT1W-KOUfg-AYN4RyT-zEGgX47m6skpbrnZR0bGY1VhcIosuAZJCrQa9VrLy63toDxJdVPHKBxY"/>
               </div>
               <div class="card-meta transition-opacity duration-300">
@@ -766,7 +749,7 @@
                 </div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div class="flex items-center gap-2">
-                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]">EVENT DESIGN</span>
+                    <span class="px-2 sm:px-2.5 py-0.5 rounded bg-[#F1F4FF] dark:bg-[#5B73FF]/15 text-[#2D46EC] dark:text-[#5B73FF] border border-[#2D46EC]/15 dark:border-[#5B73FF]/30 font-mono font-semibold text-[10px]" data-i18n="work.tagIyc">EVENT DESIGN</span>
                     <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="work.card6Sub">Branding Konferensi Global</p>
                   </div>
                   <span class="text-xs font-mono font-bold text-[#2D46EC] dark:text-[#5B73FF] whitespace-nowrap" data-i18n="work.readMore">Lihat Proyek →</span>
@@ -776,27 +759,25 @@
 
           </div>
 
-          <!-- Bottom Navigation Controls & Dots -->
-          <div class="flex items-center justify-center gap-4 mt-2 sm:mt-5">
-            <button onclick="navigateSlide(-1)" type="button" aria-label="Previous Project" class="sm:hidden w-9 h-9 rounded-full bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/15 text-neutral-700 dark:text-[#F3F5F8] flex items-center justify-center shadow-sm active:scale-95">
+          <!-- Bottom Navigation Controls & Dot Indicators -->
+          <div class="relative z-30 flex items-center justify-center gap-4 mt-6 sm:mt-9">
+            <button onclick="navigateSlide(-1)" type="button" aria-label="Previous Project" class="sm:hidden w-9 h-9 rounded-full bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 text-neutral-700 dark:text-[#F3F5F8] flex items-center justify-center shadow-sm active:scale-95">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
               </svg>
             </button>
 
-            <!-- Dot Indicators -->
             <div class="flex items-center gap-1.5" id="carousel-dots-container"></div>
 
-            <button onclick="navigateSlide(1)" type="button" aria-label="Next Project" class="sm:hidden w-9 h-9 rounded-full bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/15 text-neutral-700 dark:text-[#F3F5F8] flex items-center justify-center shadow-sm active:scale-95">
+            <button onclick="navigateSlide(1)" type="button" aria-label="Next Project" class="sm:hidden w-9 h-9 rounded-full bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 text-neutral-700 dark:text-[#F3F5F8] flex items-center justify-center shadow-sm active:scale-95">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
           </div>
 
-          <!-- Swipe / Touch Guidance Hint -->
-          <p class="text-center font-mono text-[11px] text-neutral-400 dark:text-[#9BA5B7] mt-2">
-            ← <span data-i18n="work.swipeHint">Swipe or use arrows to navigate projects</span> →
+          <p class="relative z-30 text-center font-mono text-[11px] text-neutral-400 dark:text-[#9BA5B7] mt-2.5">
+            ← <span data-i18n="work.swipeHint">Geser kartu atau gunakan tombol panah untuk memilih karya</span> →
           </p>
         </div>
 
@@ -806,36 +787,36 @@
     <!-- =============================================================== -->
     <!-- 4. ABOUT ME                                                     -->
     <!-- =============================================================== -->
-    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F1F4FF] dark:bg-[#151A23]" id="about">
+    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F1F4FF] dark:bg-[#111726]" id="about">
       <div class="section-grid-layer grid-emphasized"></div>
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <!-- Left side: Compact Portrait Thumbnail with Technical Badge -->
+
+          <!-- Portrait Image Column -->
           <div class="lg:col-span-4 relative flex justify-center reveal-item">
             <div class="relative w-full max-w-[280px] sm:max-w-[340px] flex flex-col items-center select-none group">
               <img alt="Naufal Aditya Fahrezi studio portrait" class="w-full h-auto max-h-[420px] object-contain drop-shadow-2xl pointer-events-none transition-transform duration-500 group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgTWvqAIeNmrC5ioasDxLKUuAK4-Y1xlE2eYjnWrE5cX0wvo604jW5WSPx28T1pDmkaY3L-OIGuJ3GfsDzPjixyy1Zz0L1jupCSUu8ZJNBeV4HHoUclh0NL1mx-BsovJMi84PozK-uFj-FiovaZbu3jLDLgJ6FanD_Zfleg7cpGh7i5KgqLcx557Avmn1G6O02wz3TZFRoH1fxW_6ZKBRqnod4UuuxLg6JXTVOzNjq6smqcKbKcbRe9mH7-oiCEWAbiOss0IFkreOY"/>
               <div class="absolute bottom-2 right-2 sm:right-4 bg-[#2D46EC] dark:bg-[#5B73FF] text-white px-3 py-1.5 rounded-md font-mono text-[11px] uppercase tracking-wider shadow-md z-10" data-i18n="about.badge">
-                Visual Designer &amp; Multimedia Editor
+                Desainer Visual &amp; Editor Multimedia
               </div>
             </div>
           </div>
 
-          <!-- Right side: Editorial text with bold vertical blue rule -->
+          <!-- Narrative Column -->
           <div class="lg:col-span-8 pl-0 lg:pl-8 border-l-0 lg:border-l-4 border-[#2D46EC] dark:border-[#5B73FF] reveal-item delay-150">
             <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-neutral-900 dark:text-[#F3F5F8] tracking-tight mb-4">
               <span data-i18n="about.title1">TENTANG</span> <span class="text-[#2D46EC] dark:text-[#5B73FF]">NAUFAL</span>
             </h2>
-            <div class="space-y-4 text-base sm:text-xl text-neutral-900 dark:text-[#F3F5F8] leading-relaxed font-normal">
-              <p data-i18n="about.p1">
-                Saya berfokus pada bidang komunikasi visual, desain grafis, serta pengolahan konten foto dan video untuk kebutuhan branding dan media digital. Berbekal latar belakang pendidikan Ilmu Komunikasi di Universitas Airlangga, saya menggabungkan pemahaman strategis dalam penyampaian pesan dengan pendekatan visual yang kreatif, terarah, dan komunikatif.
+            <div class="space-y-4">
+              <p class="text-base sm:text-xl text-neutral-900 dark:text-[#F3F5F8] leading-relaxed font-normal" data-i18n="about.p1">
+                Hai, saya Naufal Aditya Fahrezi. Seorang manusia biasa yang punya ketertarikan lebih pada dunia desain grafis, fotografi, dan video editing. Bisa dibilang, saya cukup senang menghabiskan waktu untuk mengolah ide dan bereksperimen dengan berbagai hal visual.
               </p>
-              <p class="text-neutral-600 dark:text-[#9BA5B7] text-sm sm:text-lg" data-i18n="about.p2">
-                Saya tertarik menerjemahkan berbagai ide, informasi, dan kebutuhan komunikasi dari institusi maupun brand komersial menjadi karya visual yang menarik dan bermakna. Cakupan pekerjaan saya meliputi desain grafis, pengembangan materi branding, pengelolaan visual media sosial, kampanye digital multi-kanal, hingga penyuntingan foto dan video.
+              <p class="text-base sm:text-xl text-neutral-900 dark:text-[#F3F5F8] leading-relaxed font-normal" data-i18n="about.p2">
+                Berbekal latar belakang pendidikan Ilmu Komunikasi di Universitas Airlangga serta pengalaman dari berbagai organisasi, magang, dan proyek kreatif, saya terus belajar dan mengembangkan kemampuan di bidang yang saya sukai ini. Bagi saya, selalu ada hal baru untuk dicoba, ide untuk dieksplorasi, dan tentunya karya untuk dibuat.
               </p>
             </div>
-            
-            <!-- Status Aktif with Card Block and Pulsing Green LED -->
+
+            <!-- Active Status Badge -->
             <div class="mt-6 pt-5 border-t border-black/10 dark:border-white/10 flex items-center">
               <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold tracking-wider">
                 <span class="relative flex h-2 w-2">
@@ -854,7 +835,7 @@
     <!-- =============================================================== -->
     <!-- 5. EXPERIENCE                                                   -->
     <!-- =============================================================== -->
-    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F8F8F5] dark:bg-[#0F1218]" id="experience">
+    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F8F8F5] dark:bg-[#0D1117]" id="experience">
       <div class="section-grid-layer grid-subtle"></div>
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
         <div class="max-w-xl mb-8 sm:mb-10 reveal-item">
@@ -863,73 +844,81 @@
           </h2>
         </div>
 
-        <div class="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
-          <!-- Item 1 (Current): Moslem Travel / Moslem Cinematic -->
-          <div onclick="openProjectDetail('moslem-cinematic')" class="reveal-item py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-[#2D46EC]/[0.04] dark:hover:bg-white/[0.04] px-3 -mx-3 rounded-lg transition-all duration-200 border-l-2 border-transparent hover:border-[#2D46EC] dark:hover:border-[#5B73FF] cursor-pointer">
-            <div class="sm:w-8/12">
-              <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
-                <span class="flex items-center gap-2.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
-                  <span>Moslem Cinematic (PT Moslem Travel Indonesia)</span>
-                </span>
-                <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
-                  <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Yogyakarta, <br class="sm:hidden"/>Indonesia
-                </span>
+        <div class="space-y-4 max-w-4xl">
+          <!-- Exp 1: Moslem Cinematic -->
+          <div onclick="openProjectDetail('moslem-cinematic')" class="reveal-item p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 border-l-4 border-l-[#2D46EC] dark:border-l-[#5B73FF] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="sm:w-8/12">
+                <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
+                    <span>Moslem Cinematic (PT Moslem Travel Indonesia)</span>
+                  </span>
+                  <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
+                    <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Yogyakarta, <br class="sm:hidden"/>Indonesia
+                  </span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-4 mt-1" data-i18n="exp.role1">Editor Foto &amp; Video</p>
               </div>
-              <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-5 mt-0.5" data-i18n="exp.role1">Editor Foto &amp; Video</p>
+              <div class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF] sm:text-right pl-4 sm:pl-0 sm:w-4/12" data-i18n="exp.date1">Des 2025 – Sekarang</div>
             </div>
-            <div class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF] sm:text-right pl-5 sm:pl-0 sm:w-4/12" data-i18n="exp.date1">Des 2025 – Sekarang</div>
           </div>
 
-          <!-- Item 2: Pusat Humas dan Protokol UNAIR -->
-          <div onclick="openProjectDetail('unair-humas')" class="reveal-item py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-[#2D46EC]/[0.04] dark:hover:bg-white/[0.04] px-3 -mx-3 rounded-lg transition-all duration-200 border-l-2 border-transparent hover:border-[#2D46EC] dark:hover:border-[#5B73FF] cursor-pointer">
-            <div class="sm:w-8/12">
-              <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
-                <span class="flex items-center gap-2.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
-                  <span>PHMP Universitas Airlangga</span>
-                </span>
-                <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
-                  <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Surabaya, <br class="sm:hidden"/>Indonesia
-                </span>
+          <!-- Exp 2: PHMP UNAIR -->
+          <div onclick="openProjectDetail('unair-humas')" class="reveal-item delay-100 p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 border-l-4 border-l-[#2D46EC] dark:border-l-[#5B73FF] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="sm:w-8/12">
+                <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
+                    <span>PHMP Universitas Airlangga</span>
+                  </span>
+                  <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
+                    <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Surabaya, <br class="sm:hidden"/>Indonesia
+                  </span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-4 mt-1" data-i18n="exp.role2">Desain Grafis &amp; Infografis</p>
               </div>
-              <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-5 mt-0.5" data-i18n="exp.role2">Desain Grafis &amp; Infografis</p>
+              <div class="font-mono text-xs font-medium text-neutral-500 dark:text-[#9BA5B7] sm:text-right pl-4 sm:pl-0 sm:w-4/12" data-i18n="exp.date2">Sep 2025 – Feb 2026</div>
             </div>
-            <div class="font-mono text-xs font-medium text-neutral-500 dark:text-[#9BA5B7] sm:text-right pl-5 sm:pl-0 sm:w-4/12" data-i18n="exp.date2">Sep 2025 – Feb 2026</div>
           </div>
 
-          <!-- Item 3: Kanwil ATR BPN Jawa Tengah -->
-          <div class="reveal-item py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-[#2D46EC]/[0.04] dark:hover:bg-white/[0.04] px-3 -mx-3 rounded-lg transition-all duration-200 border-l-2 border-transparent hover:border-[#2D46EC] dark:hover:border-[#5B73FF]">
-            <div class="sm:w-8/12">
-              <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
-                <span class="flex items-center gap-2.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
-                  <span>Kantor Wilayah ATR/BPN Provinsi Jawa Tengah</span>
-                </span>
-                <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
-                  <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Semarang, <br class="sm:hidden"/>Indonesia
-                </span>
+          <!-- Exp 3: Kanwil ATR/BPN Provinsi Jawa Tengah -->
+          <div class="reveal-item delay-150 p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 border-l-4 border-l-[#2D46EC] dark:border-l-[#5B73FF] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="sm:w-8/12">
+                <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
+                    <span>Kantor Wilayah ATR/BPN Provinsi Jawa Tengah</span>
+                  </span>
+                  <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
+                    <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Semarang, <br class="sm:hidden"/>Indonesia
+                  </span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-4 mt-1" data-i18n="exp.role3">Magang Hubungan Masyarakat (Humas)</p>
               </div>
-              <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-5 mt-0.5" data-i18n="exp.role3">Magang Hubungan Masyarakat (Humas)</p>
+              <div class="font-mono text-xs font-medium text-neutral-500 dark:text-[#9BA5B7] sm:text-right pl-4 sm:pl-0 sm:w-4/12" data-i18n="exp.date3">Feb – Jun 2025</div>
             </div>
-            <div class="font-mono text-xs font-medium text-neutral-500 dark:text-[#9BA5B7] sm:text-right pl-5 sm:pl-0 sm:w-4/12" data-i18n="exp.date3">Feb – Jun 2025</div>
           </div>
 
-          <!-- Item 4: Global Youth Ambassador -->
-          <div onclick="openProjectDetail('global-youth-ambassador')" class="reveal-item py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-[#2D46EC]/[0.04] dark:hover:bg-white/[0.04] px-3 -mx-3 rounded-lg transition-all duration-200 border-l-2 border-transparent hover:border-[#2D46EC] dark:hover:border-[#5B73FF] cursor-pointer">
-            <div class="sm:w-8/12">
-              <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
-                <span class="flex items-center gap-2.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
-                  <span>Global Youth Ambassador</span>
-                </span>
-                <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
-                  <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Yogyakarta, <br class="sm:hidden"/>Indonesia
-                </span>
+          <!-- Exp 4: Global Youth Ambassador -->
+          <div onclick="openProjectDetail('global-youth-ambassador')" class="reveal-item delay-200 p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 border-l-4 border-l-[#2D46EC] dark:border-l-[#5B73FF] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="sm:w-8/12">
+                <div class="font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] transition-colors flex items-start justify-between sm:justify-start sm:items-baseline gap-2 sm:gap-2.5 w-full">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] shrink-0"></span>
+                    <span>Global Youth Ambassador</span>
+                  </span>
+                  <span class="text-[11px] sm:text-sm font-normal text-neutral-500 dark:text-[#9BA5B7] text-right sm:text-left shrink-0 sm:shrink leading-tight sm:leading-normal whitespace-nowrap pt-0.5 sm:pt-0">
+                    <span class="hidden sm:inline">-</span><span class="sm:hidden">—</span> Yogyakarta, <br class="sm:hidden"/>Indonesia
+                  </span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-4 mt-1" data-i18n="exp.role5">Desainer Grafis</p>
               </div>
-              <p class="text-xs sm:text-sm text-neutral-600 dark:text-[#9BA5B7] pl-5 mt-0.5" data-i18n="exp.role5">Desainer Grafis</p>
+              <div class="font-mono text-xs font-medium text-neutral-500 dark:text-[#9BA5B7] sm:text-right pl-4 sm:pl-0 sm:w-4/12">2023 – 2024</div>
             </div>
-            <div class="font-mono text-xs font-medium text-neutral-500 dark:text-[#9BA5B7] sm:text-right pl-5 sm:pl-0 sm:w-4/12">2023 – 2024</div>
           </div>
         </div>
       </div>
@@ -938,7 +927,7 @@
     <!-- =============================================================== -->
     <!-- 6. EDUCATION                                                    -->
     <!-- =============================================================== -->
-    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F8F8F5] dark:bg-[#0F1218]" id="education">
+    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F8F8F5] dark:bg-[#0D1117]" id="education">
       <div class="section-grid-layer grid-subtle"></div>
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
         <div class="max-w-3xl mb-8 sm:mb-10 reveal-item">
@@ -949,7 +938,7 @@
 
         <div class="max-w-4xl space-y-4 sm:space-y-5">
           <!-- Education 1 -->
-          <div class="reveal-item p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 hover:border-[#2D46EC]/40 dark:hover:border-[#5B73FF]/50 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md">
+          <div class="reveal-item p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 hover:border-[#2D46EC]/40 dark:hover:border-[#5B73FF]/50 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md">
             <div class="space-y-1">
               <div class="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
@@ -961,14 +950,14 @@
               <p class="text-neutral-600 dark:text-[#9BA5B7] text-sm sm:text-base pl-5" data-i18n="edu.major1">Ilmu Komunikasi</p>
             </div>
             <div class="sm:text-right pl-5 sm:pl-0">
-              <span class="inline-block font-mono text-xs font-semibold text-neutral-700 dark:text-[#F3F5F8] bg-neutral-200/70 dark:bg-[#151A23] border border-black/5 dark:border-white/10 px-3.5 py-1.5 rounded-full">
+              <span class="inline-block font-mono text-xs font-semibold text-neutral-700 dark:text-[#F3F5F8] bg-neutral-200/70 dark:bg-[#090D14] border border-black/5 dark:border-white/10 px-3.5 py-1.5 rounded-full">
                 2022 — 2026
               </span>
             </div>
           </div>
 
           <!-- Education 2 -->
-          <div class="reveal-item delay-100 p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 hover:border-[#2D46EC]/40 dark:hover:border-[#5B73FF]/50 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md">
+          <div class="reveal-item delay-100 p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 hover:border-[#2D46EC]/40 dark:hover:border-[#5B73FF]/50 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md">
             <div class="space-y-1">
               <div class="flex items-center gap-2 sm:gap-3">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
@@ -977,7 +966,7 @@
               <p class="text-neutral-600 dark:text-[#9BA5B7] text-sm sm:text-base pl-5" data-i18n="edu.major2">Studi Keagamaan Islam (KMI)</p>
             </div>
             <div class="sm:text-right pl-5 sm:pl-0">
-              <span class="inline-block font-mono text-xs font-semibold text-neutral-700 dark:text-[#F3F5F8] bg-neutral-200/70 dark:bg-[#151A23] border border-black/5 dark:border-white/10 px-3.5 py-1.5 rounded-full">
+              <span class="inline-block font-mono text-xs font-semibold text-neutral-700 dark:text-[#F3F5F8] bg-neutral-200/70 dark:bg-[#090D14] border border-black/5 dark:border-white/10 px-3.5 py-1.5 rounded-full">
                 2016 — 2021
               </span>
             </div>
@@ -989,7 +978,7 @@
     <!-- =============================================================== -->
     <!-- 7. TOOLS & SKILLS                                               -->
     <!-- =============================================================== -->
-    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F1F4FF] dark:bg-[#151A23]" id="skills">
+    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F1F4FF] dark:bg-[#111726]" id="skills">
       <div class="section-grid-layer grid-emphasized"></div>
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
         <div class="max-w-xl mb-10 sm:mb-12 reveal-item">
@@ -1002,17 +991,17 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-          <!-- Column 1: Graphic Design Stack -->
-          <div class="reveal-item bg-white dark:bg-[#1C222E] rounded-2xl p-6 sm:p-8 border border-black/10 dark:border-white/10 shadow-sm relative hover:shadow-md transition-shadow">
+          <!-- Column 1: Design Stack -->
+          <div class="reveal-item bg-white dark:bg-[#151D2C] rounded-2xl p-6 sm:p-8 border border-black/10 dark:border-white/10 shadow-sm relative hover:shadow-md transition-shadow">
             <div class="absolute -top-3 left-6 bg-[#2D46EC] dark:bg-[#5B73FF] text-white px-2.5 py-0.5 rounded text-[10px] font-mono tracking-widest uppercase" data-i18n="skills.badge1">
-              DESIGN STACK
+              DESAIN GRAFIS
             </div>
             <h3 class="font-display font-bold text-lg text-neutral-900 dark:text-[#F3F5F8] mb-6 flex items-center gap-2 mt-1">
               <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
               <span data-i18n="skills.col1">Desain Grafis &amp; Vektor</span>
             </h3>
             <div class="space-y-6">
-              <!-- Skill 1: Photoshop -->
+              <!-- Adobe Photoshop -->
               <div>
                 <div class="flex justify-between items-center text-sm mb-2">
                   <div class="flex items-center gap-2.5">
@@ -1022,14 +1011,14 @@
                     </svg>
                     <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">Adobe Photoshop</span>
                   </div>
-                  <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvl88">Mahir (88%)</span>
+                  <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlPs">Mahir (84%)</span>
                 </div>
-                <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 88%"></div>
+                <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 84%"></div>
                 </div>
               </div>
 
-              <!-- Skill 2: Illustrator -->
+              <!-- Adobe Illustrator -->
               <div>
                 <div class="flex justify-between items-center text-sm mb-2">
                   <div class="flex items-center gap-2.5">
@@ -1039,14 +1028,14 @@
                     </svg>
                     <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">Adobe Illustrator</span>
                   </div>
-                  <span class="font-mono text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7]" data-i18n="skills.lvl74">Menengah (74%)</span>
+                  <span class="font-mono text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7]" data-i18n="skills.lvlAi">Menengah (63%)</span>
                 </div>
-                <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 74%"></div>
+                <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 63%"></div>
                 </div>
               </div>
 
-              <!-- Skill 3: CorelDRAW -->
+              <!-- CorelDRAW -->
               <div>
                 <div class="flex justify-between items-center text-sm mb-2">
                   <div class="flex items-center gap-2.5">
@@ -1057,14 +1046,14 @@
                     </svg>
                     <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">CorelDRAW</span>
                   </div>
-                  <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvl85">Mahir (85%)</span>
+                  <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlCd">Mahir (82%)</span>
                 </div>
-                <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 85%"></div>
+                <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 82%"></div>
                 </div>
               </div>
 
-              <!-- Skill 4: Canva (Clean Official Script SVG) -->
+              <!-- Canva -->
               <div>
                 <div class="flex justify-between items-center text-sm mb-2">
                   <div class="flex items-center gap-2.5">
@@ -1074,19 +1063,19 @@
                     </svg>
                     <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">Canva</span>
                   </div>
-                  <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvl92">Mahir (92%)</span>
+                  <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlCanva">Mahir (89%)</span>
                 </div>
-                <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 92%"></div>
+                <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 89%"></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Column 2: Visual Editing Tools (Video, Photo & Motion) -->
-          <div class="reveal-item delay-100 bg-white dark:bg-[#1C222E] rounded-2xl p-6 sm:p-8 border border-black/10 dark:border-white/10 shadow-sm flex flex-col justify-between relative hover:shadow-md transition-shadow">
+          <!-- Column 2: Visual Editing Tools -->
+          <div class="reveal-item delay-100 bg-white dark:bg-[#151D2C] rounded-2xl p-6 sm:p-8 border border-black/10 dark:border-white/10 shadow-sm flex flex-col justify-between relative hover:shadow-md transition-shadow">
             <div class="absolute -top-3 left-6 bg-[#2D46EC] dark:bg-[#5B73FF] text-white px-2.5 py-0.5 rounded text-[10px] font-mono tracking-widest uppercase" data-i18n="skills.badge2">
-              POST-PRODUCTION
+              PASCA-PRODUKSI
             </div>
             <div>
               <h3 class="font-display font-bold text-lg text-neutral-900 dark:text-[#F3F5F8] mb-6 flex items-center gap-2 mt-1">
@@ -1094,7 +1083,7 @@
                 <span data-i18n="skills.col2">Visual Editing Tools</span>
               </h3>
               <div class="space-y-6">
-                <!-- Skill 1: CapCut (Official Vector Ribbon SVG) -->
+                <!-- CapCut -->
                 <div>
                   <div class="flex justify-between items-center text-sm mb-2">
                     <div class="flex items-center gap-2.5">
@@ -1106,14 +1095,14 @@
                       </svg>
                       <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">CapCut</span>
                     </div>
-                    <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlCapcut">Mahir (85%)</span>
+                    <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlCapcut">Mahir (82%)</span>
                   </div>
-                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 85%"></div>
+                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 82%"></div>
                   </div>
                 </div>
 
-                <!-- Skill 2: Premiere Pro -->
+                <!-- Adobe Premiere Pro -->
                 <div>
                   <div class="flex justify-between items-center text-sm mb-2">
                     <div class="flex items-center gap-2.5">
@@ -1123,14 +1112,14 @@
                       </svg>
                       <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">Adobe Premiere Pro</span>
                     </div>
-                    <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlPremiere">Menengah (65%)</span>
+                    <span class="font-mono text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7]" data-i18n="skills.lvlPremiere">Menengah (55%)</span>
                   </div>
-                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 65%"></div>
+                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 55%"></div>
                   </div>
                 </div>
 
-                <!-- Skill 3: Lightroom -->
+                <!-- Adobe Lightroom -->
                 <div>
                   <div class="flex justify-between items-center text-sm mb-2">
                     <div class="flex items-center gap-2.5">
@@ -1140,14 +1129,14 @@
                       </svg>
                       <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">Adobe Lightroom</span>
                     </div>
-                    <span class="font-mono text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7]" data-i18n="skills.lvl76">Menengah (76%)</span>
+                    <span class="font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="skills.lvlLr">Menengah (74%)</span>
                   </div>
-                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 76%"></div>
+                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 74%"></div>
                   </div>
                 </div>
 
-                <!-- Skill 4: After Effects -->
+                <!-- Adobe After Effects -->
                 <div>
                   <div class="flex justify-between items-center text-sm mb-2">
                     <div class="flex items-center gap-2.5">
@@ -1157,10 +1146,10 @@
                       </svg>
                       <span class="font-semibold text-neutral-800 dark:text-[#F3F5F8]">Adobe After Effects</span>
                     </div>
-                    <span class="font-mono text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7]" data-i18n="skills.lvlAe">Dasar (30%)</span>
+                    <span class="font-mono text-xs font-semibold text-neutral-500 dark:text-[#9BA5B7]" data-i18n="skills.lvlAe">Dasar (27%)</span>
                   </div>
-                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#0F1218] rounded-full overflow-hidden">
-                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 30%"></div>
+                  <div class="h-2 w-full bg-neutral-200 dark:bg-[#090D14] rounded-full overflow-hidden">
+                    <div class="h-full bg-[#2D46EC] dark:bg-[#5B73FF] rounded-full skill-bar" style="--target-width: 27%"></div>
                   </div>
                 </div>
               </div>
@@ -1173,7 +1162,7 @@
     <!-- =============================================================== -->
     <!-- 8. FREQUENTLY ASKED QUESTIONS                                   -->
     <!-- =============================================================== -->
-    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F8F8F5] dark:bg-[#0F1218]" id="faq">
+    <section class="site-section border-b border-black/10 dark:border-white/10 py-16 sm:py-24 bg-[#F8F8F5] dark:bg-[#090D14]" id="faq">
       <div class="section-grid-layer grid-subtle"></div>
       <div class="max-w-4xl mx-auto px-5 sm:px-6 relative z-10">
         <div class="text-center mb-10 sm:mb-12 reveal-item">
@@ -1186,63 +1175,69 @@
         </div>
 
         <div class="divide-y divide-black/10 dark:divide-white/10 border-y border-black/10 dark:border-white/10">
+          <!-- Q1 -->
           <details class="group py-5 cursor-pointer reveal-item">
             <summary class="flex justify-between items-center text-left font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] transition-colors list-none">
-              <span data-i18n="faq.q1">Apakah Anda tersedia untuk proyek freelance?</span>
+              <span data-i18n="faq.q1">Apakah kamu menerima proyek freelance?</span>
               <span class="text-xl font-mono text-neutral-400 group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7] leading-relaxed pr-6" data-i18n="faq.a1">
-              Ya. Saya tersedia untuk proyek freelance pilihan di bidang desain grafis, konten media sosial, dan pengeditan video. Silakan hubungi saya untuk mendiskusikan kebutuhan serta jadwal proyek Anda.
+              Ya, saya terbuka untuk proyek freelance, terutama yang berkaitan dengan desain grafis, konten media sosial, dan editing video. Untuk setiap proyek, saya akan menyesuaikan pekerjaan dengan kebutuhan dan kesepakatan bersama.
             </div>
           </details>
 
+          <!-- Q2 -->
           <details class="group py-5 cursor-pointer reveal-item">
             <summary class="flex justify-between items-center text-left font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] transition-colors list-none">
-              <span data-i18n="faq.q2">Apakah Anda terbuka untuk peluang kerja full-time?</span>
+              <span data-i18n="faq.q2">Apakah kamu terbuka untuk pekerjaan full-time?</span>
               <span class="text-xl font-mono text-neutral-400 group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7] leading-relaxed pr-6" data-i18n="faq.a2">
-              Ya. Saya sangat terbuka untuk peluang kerja purnawaktu (full-time) di bidang desain grafis, video editing, konten kreatif, maupun peran komunikasi visual terkait.
+              Tentu. Saya terbuka untuk kesempatan kerja full-time maupun posisi lainnya yang sesuai dengan bidang dan kemampuan saya, khususnya di bidang desain grafis, media, dan produksi konten.
             </div>
           </details>
 
+          <!-- Q3 -->
           <details class="group py-5 cursor-pointer reveal-item">
             <summary class="flex justify-between items-center text-left font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] transition-colors list-none">
-              <span data-i18n="faq.q3">Jenis pekerjaan desain apa yang biasanya Anda tangani?</span>
+              <span data-i18n="faq.q3">Jenis desain apa yang bisa kamu kerjakan?</span>
               <span class="text-xl font-mono text-neutral-400 group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7] leading-relaxed pr-6" data-i18n="faq.a3">
-              Pekerjaan saya meliputi desain media sosial, visual kampanye, poster film, materi promosi, grafis acara, lookbook katalog, hingga kebutuhan branding institusi.
+              Saya mengerjakan berbagai kebutuhan desain, seperti konten media sosial, infografis, poster, materi publikasi, serta desain untuk kebutuhan acara dan promosi.
             </div>
           </details>
 
+          <!-- Q4 -->
           <details class="group py-5 cursor-pointer reveal-item">
             <summary class="flex justify-between items-center text-left font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] transition-colors list-none">
-              <span data-i18n="faq.q4">Jenis pengeditan video apa yang Anda kerjakan?</span>
+              <span data-i18n="faq.q4">Apakah kamu juga mengerjakan editing video?</span>
               <span class="text-xl font-mono text-neutral-400 group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7] leading-relaxed pr-6" data-i18n="faq.a4">
-              Saya berfokus pada video reels media sosial, konten komersial berdurasi pendek, dokumentasi sinematik perjalanan &amp; umrah, video promosi, serta pengeditan konten digital naratif.
+              Ya, saya juga mengerjakan editing video, mulai dari video pendek untuk media sosial hingga video dokumentasi, promosi, dan recap kegiatan.
             </div>
           </details>
 
+          <!-- Q5 -->
           <details class="group py-5 cursor-pointer reveal-item">
             <summary class="flex justify-between items-center text-left font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] transition-colors list-none">
-              <span data-i18n="faq.q5">Aplikasi apa saja yang Anda gunakan?</span>
+              <span data-i18n="faq.q5">Aplikasi apa saja yang biasa kamu gunakan?</span>
               <span class="text-xl font-mono text-neutral-400 group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7] leading-relaxed pr-6" data-i18n="faq.a5">
-              Aplikasi utama yang saya gunakan meliputi Adobe Photoshop, Illustrator, Premiere Pro, Lightroom, CorelDRAW, Canva, dan CapCut.
+              Beberapa aplikasi yang biasa saya gunakan dalam proses desain dan editing antara lain Adobe Photoshop, CorelDRAW, Lightroom, Canva, dan CapCut.
             </div>
           </details>
 
+          <!-- Q6 -->
           <details class="group py-5 cursor-pointer reveal-item">
             <summary class="flex justify-between items-center text-left font-display font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F3F5F8] group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] transition-colors list-none">
-              <span data-i18n="faq.q6">Bagaimana cara menghubungi Anda untuk tawaran proyek atau kerja sama?</span>
+              <span data-i18n="faq.q6">Bagaimana cara menghubungimu?</span>
               <span class="text-xl font-mono text-neutral-400 group-open:text-[#2D46EC] dark:group-open:text-[#5B73FF] group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7] leading-relaxed pr-6" data-i18n="faq.a6">
-              Anda dapat menghubungi saya langsung melalui WhatsApp (+62 858-6631-9878), email (naufaladityafahrezi@gmail.com), atau terhubung lewat LinkedIn, Behance, dan Instagram (@naufaladity_) melalui tautan di bawah.
+              Kamu bisa menghubungi saya melalui email atau media sosial yang tersedia di halaman kontak. Saya terbuka untuk berdiskusi mengenai peluang kerja, proyek freelance, maupun bentuk kolaborasi lainnya.
             </div>
           </details>
         </div>
@@ -1252,7 +1247,7 @@
     <!-- =============================================================== -->
     <!-- 9. CONTACT & CLOSING                                            -->
     <!-- =============================================================== -->
-    <section class="site-section py-20 sm:py-28 bg-[#2D46EC] dark:bg-[#19288A] text-white relative" id="contact">
+    <section class="site-section py-20 sm:py-28 bg-[#2D46EC] dark:bg-[#16226B] text-white relative" id="contact">
       <div class="section-grid-layer grid-contact-white"></div>
       <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
         <div class="max-w-3xl reveal-item">
@@ -1276,13 +1271,13 @@
               <span class="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </a>
 
-            <!-- Direct WhatsApp CTA Button -->
+            <!-- WhatsApp Link -->
             <a class="magnetic-btn px-6 sm:px-7 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-lg shadow-black/15 group" href="https://wa.me/6285866319878" rel="noopener noreferrer" target="_blank">
               <span data-i18n="contact.whatsapp">HUBUNGI WHATSAPP</span>
               <span class="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </a>
 
-            <!-- Direct Email Copy Pill -->
+            <!-- Email Copy Button Pill -->
             <div class="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2.5 rounded-2xl sm:rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-xs font-mono text-white max-w-full">
               <span class="truncate max-w-[200px] sm:max-w-none" id="email-text">naufaladityafahrezi@gmail.com</span>
               <button type="button" class="px-2.5 py-1 rounded-full bg-white text-[#2D46EC] font-bold text-[10px] sm:text-[11px] font-sans uppercase transition-all active:scale-95 hover:bg-white/90 shadow-sm shrink-0" id="copy-email-btn" onclick="copyEmailAddress(this)" data-i18n="contact.copy">
@@ -1291,7 +1286,7 @@
             </div>
           </div>
 
-          <!-- Verified Social Links -->
+          <!-- Social Links -->
           <div class="flex flex-wrap items-center gap-6 mt-12 pt-8 border-t border-white/20 text-sm font-semibold text-white">
             <a class="hover:text-white/80 transition-colors inline-flex items-center gap-1 group" href="https://wa.me/6285866319878" rel="noopener noreferrer" target="_blank">
               WhatsApp <span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-xs">↗</span>
@@ -1313,20 +1308,20 @@
   </main>
 
   <!-- ================================================================= -->
-  <!-- DYNAMIC CASE STUDY DETAIL VIEW (SPA PAGE)                         -->
+  <!-- DYNAMIC PROJECT DETAIL VIEW (SPA)                                 -->
   <!-- ================================================================= -->
-  <section id="project-detail-view" class="hidden min-h-screen bg-[#F8F8F5] dark:bg-[#0F1218] site-section pb-24">
+  <section id="project-detail-view" class="hidden min-h-screen bg-[#F8F8F5] dark:bg-[#0D1117] site-section pb-24">
     <div class="section-grid-layer grid-subtle"></div>
     <div class="max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-12 relative z-10" id="project-detail-content">
-      <!-- Populated dynamically via JS -->
+      <!-- Populated dynamically by JavaScript -->
     </div>
   </section>
 
   <!-- ================================================================= -->
-  <!-- INTERACTIVE RESUME / CV MODAL                                     -->
+  <!-- RESUME / CV MODAL                                                 -->
   <!-- ================================================================= -->
   <div id="resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm">
-    <div class="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/15 shadow-2xl p-6 sm:p-8 text-[#111111] dark:text-[#F3F5F8] view-animate">
+    <div class="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 shadow-2xl p-6 sm:p-8 text-[#111111] dark:text-[#F3F5F8] view-animate">
       <div class="flex items-start justify-between gap-4 pb-5 border-b border-black/10 dark:border-white/10">
         <div>
           <span class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF]" data-i18n="resume.badge">CURRICULUM VITAE • RINGKASAN</span>
@@ -1334,7 +1329,7 @@
           <p class="text-sm text-neutral-600 dark:text-[#9BA5B7]" data-i18n="resume.role">Desainer Grafis &amp; Editor Video • Pemalang, Indonesia</p>
           <p class="font-mono text-xs text-neutral-500 dark:text-[#9BA5B7] mt-1">naufaladityafahrezi@gmail.com • +62 858-6631-9878</p>
         </div>
-        <button onclick="closeResumeModal()" type="button" aria-label="Close modal" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-[#151A23] hover:bg-neutral-200 dark:hover:bg-white/10 flex items-center justify-center text-neutral-700 dark:text-[#F3F5F8] transition-colors">
+        <button onclick="closeResumeModal()" type="button" aria-label="Close modal" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-[#090D14] hover:bg-neutral-200 dark:hover:bg-white/10 flex items-center justify-center text-neutral-700 dark:text-[#F3F5F8] transition-colors">
           ✕
         </button>
       </div>
@@ -1343,7 +1338,7 @@
         <div>
           <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-[#2D46EC] dark:text-[#5B73FF] mb-2" data-i18n="resume.sumTitle">Ringkasan Profesional</h4>
           <p class="text-neutral-700 dark:text-[#9BA5B7] leading-relaxed" data-i18n="resume.sumDesc">
-            Mahasiswa S1 Ilmu Komunikasi Universitas Airlangga (2022–2026) dengan pengalaman di bidang desain grafis, infografis kehumasan, kampanye visual multi-kanal, serta pengeditan foto &amp; video komersial di lingkungan universitas, instansi pemerintah, dan brand perjalanan komersial.
+            Mahasiswa S1 Ilmu Komunikasi Universitas Airlangga (2022–2026) dengan pengalaman di bidang desain grafis, infografis kehumasan, kampanye visual multi-kanal, serta pengeditan foto &amp; video komersial.
           </p>
         </div>
 
@@ -1384,13 +1379,13 @@
         <div>
           <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-[#2D46EC] dark:text-[#5B73FF] mb-2" data-i18n="resume.stackTitle">Keahlian Perangkat Lunak</h4>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">Adobe Photoshop</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">Adobe Premiere Pro</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">CorelDRAW</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">Adobe Illustrator</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">CapCut</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">Canva</span>
-            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#151A23] text-xs font-mono">Adobe Lightroom</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">Adobe Photoshop</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">Adobe Premiere Pro</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">CorelDRAW</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">Adobe Illustrator</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">CapCut</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">Canva</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#F1F4FF] dark:bg-[#090D14] text-xs font-mono">Adobe Lightroom</span>
           </div>
         </div>
       </div>
@@ -1411,7 +1406,7 @@
   <!-- ================================================================= -->
   <!-- FOOTER                                                            -->
   <!-- ================================================================= -->
-  <footer class="site-section border-t border-black/10 dark:border-white/10 py-8 bg-[#F8F8F5] dark:bg-[#0F1218]">
+  <footer class="site-section border-t border-black/10 dark:border-white/10 py-8 bg-[#F8F8F5] dark:bg-[#0B0E14]">
     <div class="section-grid-layer grid-subtle"></div>
     <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500 dark:text-[#9BA5B7]">
       <div data-i18n="footer.copy">
@@ -1427,10 +1422,18 @@
   </footer>
 
   <!-- ================================================================= -->
-  <!-- APPLICATION LOGIC                                                 -->
+  <!-- APPLICATION JAVASCRIPT                                            -->
   <!-- ================================================================= -->
   <script>
-    let currentLang = localStorage.getItem('lang') || 'id';
+    // @ts-nocheck
+    let currentLang = 'id';
+    try {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'en' || savedLang === 'id') {
+        currentLang = savedLang;
+      }
+    } catch (e) {}
+
     let currentOpenProjectId = null;
 
     const UI_TRANSLATIONS = {
@@ -1442,7 +1445,7 @@
         "nav.skills": "Skills",
         "nav.faq": "FAQ",
         "nav.contact": "Contact",
-        "nav.resume": "CV",
+
         "mobile.work": "Selected Works",
         "mobile.about": "About",
         "mobile.experience": "Experience",
@@ -1453,110 +1456,125 @@
         "mobile.themeLabel": "Appearance",
         "mobile.darkMode": "Dark Mode",
         "mobile.lightMode": "Light Mode",
+
         "hero.badge": "PORTFOLIO 2027",
         "hero.title1": "Graphic Designer,",
         "hero.title2": "Video & Photo Editor",
-        "hero.desc": "Creating visual content through graphic design, video, and photo editing for brands, institutions, and digital platforms with a creative and strategic approach.",
-        "hero.status": "Available for full-time opportunities & freelance",
+        "hero.desc": "Transforming ideas into compelling visual stories through graphic design, photography, and video editing for communication, publication, and digital media.",
+        "hero.status": "Available for full-time & freelance opportunities",
         "hero.ctaWork": "VIEW MY WORK",
-        "hero.ctaContact": "CONTACT ME",
+        "hero.ctaContact": "GET IN TOUCH",
+
         "work.title1": "SELECTED",
         "work.title2": "WORKS",
-        "work.subtitle": "Click any project below to explore the full visual overview, client details, and deliverables.",
+        "work.subtitle": "Click any project card below to explore visual details, client overview, and key deliverables.",
         "work.filterAll": "All (6)",
         "work.filterGraphic": "Graphic Design",
-        "work.filterVideo": "Video Editing",
+        "work.filterVideo": "Video & Photo",
         "work.readMore": "View Project →",
-        "work.swipeHint": "Swipe or use arrows to navigate projects",
-        "work.card1Date": "Sep 2025 – <br class='sm:hidden'/>Feb 2026",
+        "work.swipeHint": "Swipe cards or use arrows to browse projects",
+
+        "work.card1Date": "Sep 2025 – <br class=\"sm:hidden\"/>Feb 2026",
         "work.card1Sub": "Graphic Design & Infographics",
-        "work.card2Date": "Dec 2025 – <br class='sm:hidden'/>Present",
+        "work.card2Date": "Dec 2025 – <br class=\"sm:hidden\"/>Present",
         "work.card2Sub": "Photo & Video Editor",
-        "work.card3Sub": "Fashion Lookbook & Identity",
+        "work.card3Sub": "Lookbook & Brand Identity",
         "work.card4Sub": "Film Poster & Key Visual",
-        "work.card5Sub": "Social Media & Campaign Material",
+        "work.card5Sub": "Social Media & Campaign Assets",
         "work.card6Sub": "Global Conference Branding",
+
+        "work.tagPhmp": "INSTITUTIONAL PUBLICATION",
+        "work.tagMoslem": "COMMERCIAL VIDEO & PHOTO",
+        "work.tagAzkal": "COMMERCIAL CATALOG",
+        "work.tagMadesu": "FILM POSTER",
+        "work.tagGya": "YOUTH CAMPAIGN & MEDIA",
+        "work.tagIyc": "EVENT DESIGN",
+
         "about.badge": "Visual Designer & Multimedia Editor",
         "about.title1": "ABOUT",
-        "about.p1": "I specialize in visual communication, graphic design, and photo & video content production for branding and digital media. Backed by my educational background in Communication Studies at Universitas Airlangga, I blend strategic message delivery with a creative, targeted, and communicative visual approach.",
-        "about.p2": "I am passionate about translating diverse ideas, information, and communication requirements from institutions and commercial brands into compelling, purposeful visual works. My scope includes graphic design, brand collateral development, social media visual management, multi-channel digital campaigns, and photo & video editing.",
+        "about.p1": "Hi, I'm Naufal Aditya Fahrezi. A creative professional with a dedicated passion for graphic design, photography, and video editing. I find genuine joy in turning conceptual briefs into impactful visual stories.",
+        "about.p2": "Grounded in my Communication Studies background at Universitas Airlangga and enriched by internships, organizations, and freelance projects, I continually hone my craft. For me, every project is a fresh canvas for innovation and meticulous execution.",
         "about.status": "STATUS: ACTIVE",
+
         "exp.title1": "MY",
         "exp.title2": "EXPERIENCE",
         "exp.role1": "Photo & Video Editor",
         "exp.date1": "Dec 2025 – Present",
         "exp.role2": "Graphic Design & Infographics",
         "exp.date2": "Sep 2025 – Feb 2026",
-        "exp.role3": "Public Relations Intern",
+        "exp.role3": "Public Relations (PR) Intern",
         "exp.date3": "Feb – Jun 2025",
         "exp.role5": "Graphic Designer",
+
         "edu.title1": "MY",
         "edu.title2": "EDUCATION",
         "edu.degree1": "Bachelor's Degree (S1)",
         "edu.major1": "Communication Studies",
-        "edu.major2": "Islamic Religious Studies (KMI)",
+        "edu.major2": "Islamic Studies (KMI)",
+
         "skills.title1": "TOOLS &",
-        "skills.title2": "SKILLS",
-        "skills.subtitle": "Industry standard software I use for graphic design, photography, and video editing.",
-        "skills.badge1": "DESIGN STACK",
-        "skills.col1": "Graphic Design & Vector",
+        "skills.title2": "EXPERTISE",
+        "skills.subtitle": "Industry standard software I utilize for graphic design, photography, and post-production.",
+        "skills.badge1": "GRAPHIC DESIGN",
+        "skills.col1": "Graphic & Vector Design",
+        "skills.lvlPs": "Proficient (84%)",
+        "skills.lvlAi": "Intermediate (63%)",
+        "skills.lvlCd": "Proficient (82%)",
+        "skills.lvlCanva": "Advanced (89%)",
         "skills.badge2": "POST-PRODUCTION",
         "skills.col2": "Visual Editing Tools",
-        "skills.lvl88": "Advanced (88%)",
-        "skills.lvl74": "Intermediate (74%)",
-        "skills.lvl85": "Advanced (85%)",
-        "skills.lvl92": "Advanced (92%)",
-        "skills.lvl76": "Intermediate (76%)",
-        "skills.lvlCapcut": "Advanced (85%)",
-        "skills.lvlPremiere": "Intermediate (65%)",
-        "skills.lvlAe": "Basic (30%)",
-        "faq.title1": "FREQUENTLY",
-        "faq.title2": "ASKED QUESTIONS",
-        "faq.subtitle": "A few things you might want to know before working together.",
-        "faq.q1": "Are you available for freelance projects?",
-        "faq.a1": "Yes. I’m available for selected freelance projects in graphic design, social media content, and video editing. Feel free to reach out to discuss your project, timeline, and needs.",
+        "skills.lvlCapcut": "Proficient (82%)",
+        "skills.lvlPremiere": "Intermediate (55%)",
+        "skills.lvlLr": "Intermediate (74%)",
+        "skills.lvlAe": "Basic (27%)",
+
+        "faq.title1": "FREQUENTLY ASKED",
+        "faq.title2": "QUESTIONS",
+        "faq.subtitle": "Helpful details to know before we begin collaborating.",
+        "faq.q1": "Do you accept freelance projects?",
+        "faq.a1": "Yes, I'm open to freelance projects, particularly in graphic design, social media content, and video editing. I'm happy to discuss the project requirements and find an approach that works for both sides.",
         "faq.q2": "Are you open to full-time opportunities?",
-        "faq.a2": "Yes. I’m open to full-time opportunities in graphic design, video editing, creative content, and related visual communication roles.",
-        "faq.q3": "What kind of design work do you usually handle?",
-        "faq.a3": "My work includes social media design, campaign visuals, film posters, promotional materials, event graphics, lookbooks, and institutional branding collateral.",
-        "faq.q4": "What kind of video editing do you do?",
-        "faq.a4": "I mainly work on social media reels, short-form commercial content, travel & pilgrimage cinematic recaps, promotional videos, and narrative digital content editing.",
-        "faq.q5": "What tools do you use?",
-        "faq.a5": "My primary tools include Adobe Photoshop, Illustrator, Premiere Pro, Lightroom, CorelDRAW, Canva, and CapCut.",
-        "faq.q6": "How can I contact you for a project or opportunity?",
-        "faq.a6": "You can contact me directly via WhatsApp (+62 858-6631-9878), email (naufaladityafahrezi@gmail.com), or connect through LinkedIn, Behance, or Instagram (@naufaladity_).",
+        "faq.a2": "Absolutely. I'm open to full-time positions and other opportunities that align with my skills and interests, particularly in graphic design, media, and content production.",
+        "faq.q3": "What kind of design work do you do?",
+        "faq.a3": "I work on various design projects, including social media content, infographics, posters, publication materials, and promotional or event-related designs.",
+        "faq.q4": "Do you also edit videos?",
+        "faq.a4": "Yes, I also work on video editing, from short-form social media content to event documentation, promotional videos, and event recaps.",
+        "faq.q5": "What tools do you usually work with?",
+        "faq.a5": "Some of the tools I regularly use for design and editing include Adobe Photoshop, CorelDRAW, Lightroom, Canva, and CapCut.",
+        "faq.q6": "How can I get in touch with you?",
+        "faq.a6": "You can reach me through email or the social media links provided on my contact page. I'm open to discussing job opportunities, freelance projects, and other collaborations.",
+
         "contact.label": "COLLABORATION",
-        "contact.title": "LET'S WORK TOGETHER.",
-        "contact.subtitle": "Available for full-time opportunities, collaborations, and freelance projects.",
-        "contact.cta": "EMAIL ME",
+        "contact.title": "LET'S BUILD SOMETHING TOGETHER.",
+        "contact.subtitle": "Available for full-time roles, creative collaborations, and select freelance commissions.",
+        "contact.cta": "SEND EMAIL",
         "contact.whatsapp": "CHAT ON WHATSAPP",
         "contact.copy": "COPY",
-        "contact.copied": "✓ COPIED!",
-        "resume.badge": "CURRICULUM VITAE • SUMMARY",
-        "resume.role": "Graphic Designer & Video Editor • Pemalang, Indonesia",
-        "resume.sumTitle": "Professional Summary",
-        "resume.sumDesc": "Communication Studies undergraduate at Universitas Airlangga (2022–2026) with experience in graphic design, public relations infographics, multi-channel campaign branding, and commercial photo & video editing.",
-        "resume.expTitle": "Key Experience",
-        "resume.exp1": "Moslem Cinematic (PT Moslem Travel Indonesia) — Photo & Video Editor",
-        "resume.exp2": "PHMP Universitas Airlangga — Graphic Design & Infographics",
-        "resume.exp3": "Kantor Wilayah ATR/BPN Provinsi Jawa Tengah — PR Intern",
-        "resume.exp4": "Global Youth Ambassador — Graphic Designer",
-        "resume.stackTitle": "Core Software Stack",
-        "resume.waBtn": "Chat via WhatsApp",
-        "resume.requestBtn": "Contact via Email",
-        "footer.copy": "© 2027 Naufal Aditya Fahrezi • Pemalang, Indonesia",
-        "footer.top": "Back to top",
-        "detail.back": "BACK TO ALL WORKS",
-        "detail.role": "MY ROLE",
-        "detail.timeline": "TIMELINE",
-        "detail.stack": "SOFTWARE STACK",
+        "contact.copied": "COPIED!",
+
+        "detail.back": "Back to Works",
+        "detail.role": "Role & Function",
+        "detail.timeline": "Timeline",
+        "detail.stack": "Software & Tools",
         "detail.sec1": "PROJECT OVERVIEW",
         "detail.sec2": "THE CHALLENGE",
         "detail.sec3": "VISUAL DIRECTION & SOLUTION",
         "detail.sec4": "KEY DELIVERABLES",
-        "detail.galleryTitle": "SAMPLE WORKS",
-        "detail.prev": "PREVIOUS PROJECT",
-        "detail.next": "NEXT PROJECT"
+        "detail.galleryTitle": "CURATED WORKS & MEDIA",
+        "detail.prev": "Previous",
+        "detail.next": "Next",
+
+        "resume.badge": "CURRICULUM VITAE • SUMMARY",
+        "resume.role": "Graphic Designer & Video Editor • Pemalang, Indonesia",
+        "resume.sumTitle": "Professional Summary",
+        "resume.sumDesc": "Undergraduate student in Communication Studies at Universitas Airlangga (2022–2026) with solid experience across public relations design, multi-channel editorial campaigns, visual branding, and commercial photo & video post-production.",
+        "resume.expTitle": "Key Experience",
+        "resume.stackTitle": "Software Stack",
+        "resume.waBtn": "Chat on WhatsApp",
+        "resume.requestBtn": "Contact via Email",
+
+        "footer.copy": "© 2027 Naufal Aditya Fahrezi • Pemalang, Indonesia",
+        "footer.top": "Back to top"
       },
       id: {
         "nav.work": "Karya",
@@ -1564,47 +1582,59 @@
         "nav.experience": "Pengalaman",
         "nav.education": "Pendidikan",
         "nav.skills": "Keahlian",
-        "nav.faq": "Tanya Jawab",
+        "nav.faq": "FAQ",
         "nav.contact": "Kontak",
-        "nav.resume": "CV",
+
         "mobile.work": "Karya Pilihan",
         "mobile.about": "Tentang",
         "mobile.experience": "Pengalaman",
         "mobile.education": "Pendidikan",
         "mobile.skills": "Aplikasi & Keahlian",
-        "mobile.faq": "Tanya Jawab",
+        "mobile.faq": "FAQ",
         "mobile.contact": "Kontak",
         "mobile.themeLabel": "Tampilan",
         "mobile.darkMode": "Mode Gelap",
         "mobile.lightMode": "Mode Terang",
+
         "hero.badge": "PORTOFOLIO 2027",
         "hero.title1": "Desainer Grafis,",
         "hero.title2": "Editor Video & Foto",
-        "hero.desc": "Menciptakan konten visual melalui desain grafis, pengeditan video, dan foto untuk brand, institusi, serta platform digital dengan pendekatan kreatif dan strategis.",
+        "hero.desc": "Mengolah ide menjadi karya visual melalui desain grafis, fotografi, dan video editing untuk berbagai kebutuhan komunikasi, publikasi, dan konten digital.",
         "hero.status": "Tersedia untuk peluang kerja purnawaktu (full-time) & freelance",
         "hero.ctaWork": "LIHAT KARYA SAYA",
         "hero.ctaContact": "HUBUNGI SAYA",
+
         "work.title1": "KARYA",
         "work.title2": "PILIHAN",
         "work.subtitle": "Klik pada salah satu proyek di bawah untuk melihat rincian visual lengkap, klien, dan hasil karyanya.",
         "work.filterAll": "Semua (6)",
         "work.filterGraphic": "Desain Grafis",
-        "work.filterVideo": "Edit Video",
+        "work.filterVideo": "Video & Foto",
         "work.readMore": "Lihat Proyek →",
         "work.swipeHint": "Geser kartu atau gunakan tombol panah untuk memilih karya",
-        "work.card1Date": "Sep 2025 – <br class='sm:hidden'/>Feb 2026",
+
+        "work.card1Date": "Sep 2025 – <br class=\"sm:hidden\"/>Feb 2026",
         "work.card1Sub": "Desain Grafis & Infografis",
-        "work.card2Date": "Des 2025 – <br class='sm:hidden'/>Sekarang",
+        "work.card2Date": "Des 2025 – <br class=\"sm:hidden\"/>Sekarang",
         "work.card2Sub": "Editor Foto & Video",
         "work.card3Sub": "Lookbook Fashion & Identitas",
         "work.card4Sub": "Poster Film & Key Visual",
         "work.card5Sub": "Media Sosial & Materi Kampanye",
         "work.card6Sub": "Branding Konferensi Global",
+
+        "work.tagPhmp": "PUBLIKASI & MEDIA",
+        "work.tagMoslem": "VIDEO & FOTO KOMERSIAL",
+        "work.tagAzkal": "KATALOG KOMERSIAL",
+        "work.tagMadesu": "POSTER FILM",
+        "work.tagGya": "ORGANISASI & KAMPANYE",
+        "work.tagIyc": "DESAIN ACARA",
+
         "about.badge": "Desainer Visual & Editor Multimedia",
         "about.title1": "TENTANG",
-        "about.p1": "Saya berfokus pada bidang komunikasi visual, desain grafis, serta pengolahan konten foto dan video untuk kebutuhan branding dan media digital. Berbekal latar belakang pendidikan Ilmu Komunikasi di Universitas Airlangga, saya menggabungkan pemahaman strategis dalam penyampaian pesan dengan pendekatan visual yang kreatif, terarah, dan komunikatif.",
-        "about.p2": "Saya tertarik menerjemahkan berbagai ide, informasi, dan kebutuhan komunikasi dari institusi maupun brand komersial menjadi karya visual yang menarik dan bermakna. Cakupan pekerjaan saya meliputi desain grafis, pengembangan materi branding, pengelolaan visual media sosial, kampanye digital multi-kanal, hingga penyuntingan foto dan video.",
+        "about.p1": "Hai, saya Naufal Aditya Fahrezi. Seorang manusia biasa yang punya ketertarikan lebih pada dunia desain grafis, fotografi, dan video editing. Bisa dibilang, saya cukup senang menghabiskan waktu untuk mengolah ide dan bereksperimen dengan berbagai hal visual.",
+        "about.p2": "Berbekal latar belakang pendidikan Ilmu Komunikasi di Universitas Airlangga serta pengalaman dari berbagai organisasi, magang, dan proyek kreatif, saya terus belajar dan mengembangkan kemampuan di bidang yang saya sukai ini. Bagi saya, selalu ada hal baru untuk dicoba, ide untuk dieksplorasi, dan tentunya karya untuk dibuat.",
         "about.status": "STATUS: AKTIF",
+
         "exp.title1": "PENGALAMAN",
         "exp.title2": "SAYA",
         "exp.role1": "Editor Foto & Video",
@@ -1614,73 +1644,76 @@
         "exp.role3": "Magang Hubungan Masyarakat (Humas)",
         "exp.date3": "Feb – Jun 2025",
         "exp.role5": "Desainer Grafis",
+
         "edu.title1": "PENDIDIKAN",
         "edu.title2": "SAYA",
         "edu.degree1": "Sarjana (S1)",
         "edu.major1": "Ilmu Komunikasi",
         "edu.major2": "Studi Keagamaan Islam (KMI)",
+
         "skills.title1": "APLIKASI &",
         "skills.title2": "KEAHLIAN",
         "skills.subtitle": "Perangkat lunak standar industri yang saya gunakan untuk desain grafis, fotografi, dan pengeditan video.",
         "skills.badge1": "DESAIN GRAFIS",
         "skills.col1": "Desain Grafis & Vektor",
+        "skills.lvlPs": "Mahir (84%)",
+        "skills.lvlAi": "Menengah (63%)",
+        "skills.lvlCd": "Mahir (82%)",
+        "skills.lvlCanva": "Mahir (89%)",
         "skills.badge2": "PASCA-PRODUKSI",
         "skills.col2": "Visual Editing Tools",
-        "skills.lvl88": "Mahir (88%)",
-        "skills.lvl74": "Menengah (74%)",
-        "skills.lvl85": "Mahir (85%)",
-        "skills.lvl92": "Mahir (92%)",
-        "skills.lvl76": "Menengah (76%)",
-        "skills.lvlCapcut": "Mahir (85%)",
-        "skills.lvlPremiere": "Menengah (65%)",
-        "skills.lvlAe": "Dasar (30%)",
+        "skills.lvlCapcut": "Mahir (82%)",
+        "skills.lvlPremiere": "Menengah (55%)",
+        "skills.lvlLr": "Menengah (74%)",
+        "skills.lvlAe": "Dasar (27%)",
+
         "faq.title1": "PERTANYAAN YANG",
         "faq.title2": "SERING DIAJUKAN",
         "faq.subtitle": "Beberapa hal yang mungkin ingin Anda ketahui sebelum bekerja sama.",
-        "faq.q1": "Apakah Anda tersedia untuk proyek freelance?",
-        "faq.a1": "Ya. Saya tersedia untuk proyek freelance pilihan di bidang desain grafis, konten media sosial, dan pengeditan video. Silakan hubungi saya untuk mendiskusikan kebutuhan serta jadwal proyek Anda.",
-        "faq.q2": "Apakah Anda terbuka untuk peluang kerja full-time?",
-        "faq.a2": "Ya. Saya sangat terbuka untuk peluang kerja purnawaktu (full-time) di bidang desain grafis, video editing, konten kreatif, maupun peran komunikasi visual terkait.",
-        "faq.q3": "Jenis pekerjaan desain apa yang biasanya Anda tangani?",
-        "faq.a3": "Pekerjaan saya meliputi desain media sosial, visual kampanye, poster film, materi promosi, grafis acara, lookbook katalog, hingga kebutuhan branding institusi.",
-        "faq.q4": "Jenis pengeditan video apa yang Anda kerjakan?",
-        "faq.a4": "Saya berfokus pada video reels media sosial, konten komersial berdurasi pendek, dokumentasi sinematik perjalanan & umrah, video promosi, serta pengeditan konten digital naratif.",
-        "faq.q5": "Aplikasi apa saja yang Anda gunakan?",
-        "faq.a5": "Aplikasi utama yang saya gunakan meliputi Adobe Photoshop, Illustrator, Premiere Pro, Lightroom, CorelDRAW, Canva, dan CapCut.",
-        "faq.q6": "Bagaimana cara menghubungi Anda untuk tawaran proyek atau kerja sama?",
-        "faq.a6": "Anda dapat menghubungi saya langsung melalui WhatsApp (+62 858-6631-9878), email (naufaladityafahrezi@gmail.com), atau terhubung lewat LinkedIn, Behance, dan Instagram (@naufaladity_).",
+        "faq.q1": "Apakah kamu menerima proyek freelance?",
+        "faq.a1": "Ya, saya terbuka untuk proyek freelance, terutama yang berkaitan dengan desain grafis, konten media sosial, dan editing video. Untuk setiap proyek, saya akan menyesuaikan pekerjaan dengan kebutuhan dan kesepakatan bersama.",
+        "faq.q2": "Apakah kamu terbuka untuk pekerjaan full-time?",
+        "faq.a2": "Tentu. Saya terbuka untuk kesempatan kerja full-time maupun posisi lainnya yang sesuai dengan bidang dan kemampuan saya, khususnya di bidang desain grafis, media, dan produksi konten.",
+        "faq.q3": "Jenis desain apa yang bisa kamu kerjakan?",
+        "faq.a3": "Saya mengerjakan berbagai kebutuhan desain, seperti konten media sosial, infografis, poster, materi publikasi, serta desain untuk kebutuhan acara dan promosi.",
+        "faq.q4": "Apakah kamu juga mengerjakan editing video?",
+        "faq.a4": "Ya, saya juga mengerjakan editing video, mulai dari video pendek untuk media sosial hingga video dokumentasi, promosi, dan recap kegiatan.",
+        "faq.q5": "Aplikasi apa saja yang biasa kamu gunakan?",
+        "faq.a5": "Beberapa aplikasi yang biasa saya gunakan dalam proses desain dan editing antara lain Adobe Photoshop, CorelDRAW, Lightroom, Canva, dan CapCut.",
+        "faq.q6": "Bagaimana cara menghubungimu?",
+        "faq.a6": "Kamu bisa menghubungi saya melalui email atau media sosial yang tersedia di halaman kontak. Saya terbuka untuk berdiskusi mengenai peluang kerja, proyek freelance, maupun bentuk kolaborasi lainnya.",
+
         "contact.label": "KOLABORASI",
         "contact.title": "MARI JALIN KERJA SAMA.",
         "contact.subtitle": "Tersedia untuk peluang kerja full-time, kolaborasi kreatif, dan proyek freelance.",
         "contact.cta": "KIRIM EMAIL",
         "contact.whatsapp": "HUBUNGI WHATSAPP",
         "contact.copy": "SALIN",
-        "contact.copied": "✓ TERSALIN!",
+        "contact.copied": "TERSALIN!",
+
+        "detail.back": "Kembali ke Karya",
+        "detail.role": "Peran & Fungsi",
+        "detail.timeline": "Waktu Pengerjaan",
+        "detail.stack": "Perangkat Lunak",
+        "detail.sec1": "RINGKASAN PROYEK",
+        "detail.sec2": "TANTANGAN",
+        "detail.sec3": "ARAHAN VISUAL & SOLUSI",
+        "detail.sec4": "HASIL KARYA",
+        "detail.galleryTitle": "HASIL KARYA & MEDIA",
+        "detail.prev": "Sebelumnya",
+        "detail.next": "Selanjutnya",
+
         "resume.badge": "CURRICULUM VITAE • RINGKASAN",
         "resume.role": "Desainer Grafis & Editor Video • Pemalang, Indonesia",
         "resume.sumTitle": "Ringkasan Profesional",
         "resume.sumDesc": "Mahasiswa S1 Ilmu Komunikasi Universitas Airlangga (2022–2026) dengan pengalaman di bidang desain grafis, infografis kehumasan, kampanye visual multi-kanal, serta pengeditan foto & video komersial.",
         "resume.expTitle": "Pengalaman Utama",
-        "resume.exp1": "Moslem Cinematic (PT Moslem Travel Indonesia) — Editor Foto & Video",
-        "resume.exp2": "PHMP Universitas Airlangga — Desain Grafis & Infografis",
-        "resume.exp3": "Kantor Wilayah ATR/BPN Provinsi Jawa Tengah — Magang Humas",
-        "resume.exp4": "Global Youth Ambassador — Desainer Grafis",
         "resume.stackTitle": "Keahlian Perangkat Lunak",
-        "resume.waBtn": "Chat via WhatsApp",
+        "resume.waBtn": "Hubungi via WhatsApp",
         "resume.requestBtn": "Hubungi via Email",
+
         "footer.copy": "© 2027 Naufal Aditya Fahrezi • Pemalang, Indonesia",
-        "footer.top": "Kembali ke atas",
-        "detail.back": "KEMBALI KE SEMUA KARYA",
-        "detail.role": "PERAN SAYA",
-        "detail.timeline": "PERIODE",
-        "detail.stack": "APLIKASI",
-        "detail.sec1": "RINGKASAN PROYEK",
-        "detail.sec2": "TANTANGAN",
-        "detail.sec3": "ARAHAN VISUAL & SOLUSI",
-        "detail.sec4": "HASIL KARYA (DELIVERABLES)",
-        "detail.galleryTitle": "CONTOH HASIL KARYA",
-        "detail.prev": "PROYEK SEBELUMNYA",
-        "detail.next": "PROYEK SELANJUTNYA"
+        "footer.top": "Kembali ke atas"
       }
     };
 
@@ -1690,10 +1723,10 @@
         title: "Pusat Humas dan Protokol UNAIR",
         heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAs9d0e_-mLfIkWkvlAF5IPCKHyK0_EKHsRzWTCl7N6YsPfxn_2Y_bxKnGDkTwJ1S9N9KIdrjshElhBtAGZuXUh0kWKayYHlHHLONzZX2JjvzS69QhwkMhbVP3aiuLsYS9U4RnNPHKyyLV4gjyr_cY6KfOUHBDI0IlZzjFN38MKAwFnLhg0Gfd1ChsTwjXH5Xe1OHB_FR1MlJ_7v4xiMazKq3XZ2wGnb35U0xCjZMuKECsZDgtRlikS3Un4pHW5MngzHCAy7t-E1ury",
         gallery: [
-          "phmp1.jpg",
-          "phmp1.jpg",
-          "phmp1.jpg",
-          "phmp1.jpg"
+          { url: "https://lh3.googleusercontent.com/aida-public/AB6AXuAs9d0e_-mLfIkWkvlAF5IPCKHyK0_EKHsRzWTCl7N6YsPfxn_2Y_bxKnGDkTwJ1S9N9KIdrjshElhBtAGZuXUh0kWKayYHlHHLONzZX2JjvzS69QhwkMhbVP3aiuLsYS9U4RnNPHKyyLV4gjyr_cY6KfOUHBDI0IlZzjFN38MKAwFnLhg0Gfd1ChsTwjXH5Xe1OHB_FR1MlJ_7v4xiMazKq3XZ2wGnb35U0xCjZMuKECsZDgtRlikS3Un4pHW5MngzHCAy7t-E1ury", span: 2 },
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuCQb05o67T_R11iXW2y972RzZgX7Pq6vA5d1x6L_7Q3LpX7G0a_1m3k_wFh=s800",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuDRhP5Vq8sY2b1nLp0X_4G6k9vA1c2B3d4E5f6G7h8I9j0K=s800",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuE8v-5m6N_1L2k3J4h5G6f7D8s9A0b1C2d3E4f5G6h7=s800"
         ],
         tools: ["Adobe Photoshop", "Adobe Illustrator", "CorelDRAW", "Canva"],
         instagram: { handle: "@phmp_unair", url: "https://www.instagram.com/phmp_unair/" },
@@ -1701,30 +1734,32 @@
           location: "Surabaya, Indonesia",
           role: "Graphic Design & Infographics",
           timeline: "Sep 2025 – Feb 2026",
-          category: "BRANDING • INFOGRAPHICS",
-          overview: "Working in Graphic Design & Infographics at Pusat Humas Universitas Airlangga, I produced visual communications for official institutional announcements, academic milestone campaigns, public relations data infographics, and high-visibility social media feeds reaching tens of thousands of students, alumni, and the public.",
-          challenge: "University communications often struggle to translate dense academic data and official announcements into clear, visually engaging infographics that capture student attention on Instagram and digital channels.",
-          solution: "Developed a cohesive modular layout system combining Universitas Airlangga's signature royal blue and gold heritage palette with bold editorial typography, clear data visualization, and structured information hierarchy.",
+          category: "INSTITUTIONAL PUBLICATION • INFOGRAPHICS",
+          overview: "During my time at Universitas Airlangga's Public Relations and Protocol Office, I worked on various designs for digital publications and print media. My work included infographics, Instagram carousel posts for #PakarUNAIR, Warta UNAIR magazine layouts, holiday greeting designs, and public awareness posters.",
+          challenge: "Preparing information to suit the needs of each publication. For #PakarUNAIR, I was involved in researching supporting information, organizing the content flow, and writing the final copy for each slide before moving on to the design process. Meanwhile, the infographics were based on relevant tips articles from UNAIR's website.",
+          solution: "I followed Universitas Airlangga's established visual identity, including its color palette, typography, and existing visual elements. These elements were applied according to the needs of each publication while maintaining consistency with the university's visual identity.",
           deliverables: [
-            "Public relations infographics & visual data summaries",
-            "Official Instagram carousel templates & high-impact cover graphics",
-            "Campus event key visuals, backdrops, and digital signage",
-            "Executive leadership & achievement appreciation posters"
+            "Instagram carousel posts covering research, content flow, slide copywriting, and visual layout",
+            "Warta UNAIR magazine layout design",
+            "Holiday greeting Instagram feed designs for religious celebrations",
+            "Public awareness posters addressing scams involving Universitas Airlangga's name",
+            "UNAIR monthly infographics based on tips articles from the website"
           ]
         },
         id_lang: {
           location: "Surabaya, Indonesia",
           role: "Desain Grafis & Infografis",
           timeline: "Sep 2025 – Feb 2026",
-          category: "BRANDING • INFOGRAFIS",
-          overview: "Berperan di bidang Desain Grafis dan Infografis pada Pusat Humas Universitas Airlangga, saya memproduksi komunikasi visual untuk pengumuman resmi universitas, kampanye capaian akademik, infografis data kehumasan, serta konten media sosial yang menjangkau puluhan ribu mahasiswa, alumni, dan masyarakat luas.",
-          challenge: "Komunikasi institusi pendidikan sering kali menghadapi tantangan dalam menerjemahkan data akademik dan pengumuman resmi yang padat menjadi infografis yang ringkas, menarik, dan relevan bagi mahasiswa di Instagram.",
-          solution: "Mengembangkan sistem tata letak modular yang memadukan palet biru dan emas khas Universitas Airlangga dengan tipografi editorial tegas, visualisasi infografis yang jelas, serta hierarki informasi yang rapi.",
+          category: "PUBLIKASI & MEDIA • INFOGRAFIS",
+          overview: "Selama bergabung dengan Pusat Humas dan Protokol Universitas Airlangga, saya terlibat dalam pembuatan berbagai desain untuk kebutuhan publikasi digital dan media cetak. Pekerjaan saya meliputi pembuatan infografis, konten carousel Instagram #PakarUNAIR, layout majalah Warta UNAIR, desain ucapan hari besar, serta poster imbauan.",
+          challenge: "Menyusun informasi agar sesuai dengan kebutuhan setiap publikasi. Pada konten #PakarUNAIR, saya perlu mencari informasi pendukung, menyusun alur pembahasan, hingga menulis kalimat untuk setiap slide sebelum masuk ke tahap desain. Sementara itu, infografis dibuat berdasarkan artikel tips yang relevan dari website UNAIR.",
+          solution: "Dalam mengerjakan setiap desain, saya mengikuti identitas visual Universitas Airlangga yang telah ditetapkan, mulai dari penggunaan warna, tipografi, hingga elemen visual yang tersedia. Penerapannya disesuaikan dengan kebutuhan masing-masing publikasi agar setiap desain tetap selaras dengan tampilan dan karakter UNAIR.",
           deliverables: [
-            "Infografis kehumasan & visualisasi ringkasan informasi publik",
-            "Template carousel Instagram resmi & desain sampul berdaya tarik tinggi",
-            "Key visual acara kampus, backdrop panggung, dan materi publikasi digital",
-            "Poster apresiasi prestasi akademik & komunikasi pimpinan universitas"
+            "Konten carousel Instagram, mulai dari pencarian informasi, penyusunan alur pembahasan, hingga penulisan kalimat setiap slide dan desain",
+            "Warta UNAIR: Desain layout majalah",
+            "Desain Ucapan Hari Besar: Desain feed Instagram untuk ucapan hari besar keagamaan",
+            "Poster Imbauan: Poster edukasi dan imbauan terkait penipuan yang mengatasnamakan Universitas Airlangga",
+            "Infografis UNAIR: Infografis bulanan berbasis artikel tips website resmi UNAIR"
           ]
         }
       },
@@ -1733,38 +1768,49 @@
         title: "Moslem Cinematic (PT Moslem Travel Indonesia)",
         heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBXUFS2dFmg2zkuMs12LmaP5hXNLnposcSZTYONnBurBtulb-X6a2fJNWy8ngzhX1WL5kIIO3NPNunMt4ndmi9iyIace-XRyRQCDCGebU_E3IuaICL-NEhja5WBoIxzitqGLjBMGEcc7l-VNdrITwOorQpuakIkFNyonzZdBuOXQ21TlDFUVAGZbfe1G5TGhUO1grRH8z6AFsRBNGwGu5TfW94Xo4zXahYZTvPmjW6yrtztiYwY5ndVCzYsUOfOvZxm",
         gallery: [
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuBXUFS2dFmg2zkuMs12LmaP5hXNLnposcSZTYONnBurBtulb-X6a2fJNWy8ngzhX1WL5kIIO3NPNunMt4ndmi9iyIace-XRyRQCDCGebU_E3IuaICL-NEhja5WBoIxzitqGLjBMGEcc7l-VNdrITwOorQpuakIkFNyonzZdBuOXQ21TlDFUVAGZbfe1G5TGhUO1grRH8z6AFsRBNGwGu5TfW94Xo4zXahYZTvPmjW6yrtztiYwY5ndVCzYsUOfOvZxm"
+          {
+            type: "drive",
+            url: "https://drive.google.com/file/d/1MoslemCinematicPortraitVideo01/preview",
+            aspect: "portrait"
+          },
+          {
+            type: "drive",
+            url: "https://drive.google.com/file/d/1MoslemCinematicPortraitVideo02/preview",
+            aspect: "portrait"
+          },
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuBXUFS2dFmg2zkuMs12LmaP5hXNLnposcSZTYONnBurBtulb-X6a2fJNWy8ngzhX1WL5kIIO3NPNunMt4ndmi9iyIace-XRyRQCDCGebU_E3IuaICL-NEhja5WBoIxzitqGLjBMGEcc7l-VNdrITwOorQpuakIkFNyonzZdBuOXQ21TlDFUVAGZbfe1G5TGhUO1grRH8z6AFsRBNGwGu5TfW94Xo4zXahYZTvPmjW6yrtztiYwY5ndVCzYsUOfOvZxm",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuCQb05o67T_R11iXW2y972RzZgX7Pq6vA5d1x6L_7Q3LpX7G0a_1m3k_wFh=s800",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuDRhP5Vq8sY2b1nLp0X_4G6k9vA1c2B3d4E5f6G7h8I9j0K=s800",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuE8v-5m6N_1L2k3J4h5G6f7D8s9A0b1C2d3E4f5G6h7=s800"
         ],
-        tools: ["CapCut", "Adobe Premiere Pro", "Adobe Lightroom", "Adobe Photoshop"],
+        tools: ["CapCut", "Adobe Lightroom"],
         instagram: { handle: "@moslem.cinematic", url: "https://www.instagram.com/moslem.cinematic/" },
         en: {
           location: "Yogyakarta, Indonesia",
           role: "Photo & Video Editor",
           timeline: "Dec 2025 – Present",
-          category: "COMMERCIAL • PHOTO & VIDEO",
-          overview: "Serving as Photo & Video Editor for Moslem Cinematic (Moslem Travel), producing emotionally resonant commercial videos, curated travel photography, Umrah documentary highlights, and high-retention vertical reels that capture the spiritual warmth and seamless service experience of travelers.",
-          challenge: "Raw photo and video documentation from on-site travel varies heavily in lighting, color temperature, and stabilization, requiring meticulous post-production to feel cohesive and cinematic.",
-          solution: "Implemented a warm, filmic color grading pipeline across both still photography and video edits, rhythmic audio-synced cuts, clean subtitle treatments, and atmospheric sound design.",
+          category: "COMMERCIAL VIDEO & PHOTO",
+          overview: "Moslem Cinematic is a freelance editing project for Umrah pilgrimage documentation. In this project, I am responsible for editing photos and videos captured by the documentation team in Mecca into finished media ready for pilgrims to use.",
+          challenge: "Maintaining consistent editing results so that produced photos and videos share a cohesive visual look that aligns with the company's identity.",
+          solution: "The editing process follows the company's visual identity, especially in maintaining consistent color and color grading across both photos and videos. I adjust the visual appearance of each piece so it keeps a uniform tone. Photo editing is done using Adobe Lightroom, while video editing is done using CapCut.",
           deliverables: [
-            "Curated photo editing, color grading & retouching for travel documentation",
-            "Short-form vertical commercial reels (Instagram Reels & TikTok)",
-            "Cinematic Umrah & travel group highlight documentaries (16:9)",
-            "Customer testimonial edits & promotional visual assets"
+            "Edited Umrah pilgrimage photography ready for pilgrims and publication",
+            "Umrah travel documentation videos completed for the project",
+            "More than 80 photos and 10 videos edited across the project"
           ]
         },
         id_lang: {
           location: "Yogyakarta, Indonesia",
           role: "Editor Foto & Video",
           timeline: "Des 2025 – Sekarang",
-          category: "KOMERSIAL • FOTO & VIDEO",
-          overview: "Berperan sebagai Editor Foto & Video di Moslem Cinematic (PT Moslem Travel Indonesia), memproduksi video komersial yang menyentuh emosi, kurasi fotografi perjalanan, sorotan dokumentasi ibadah umrah, serta video vertikal (Reels) yang menangkap kehangatan spiritual dan kenyamanan layanan jamaah.",
-          challenge: "Dokumentasi foto dan video mentah dari lapangan memiliki variasi pencahayaan serta temperatur warna yang beragam sehingga membutuhkan proses pengeditan yang teliti agar tampak seragam dan sinematik.",
-          solution: "Menerapkan alur color grading bernuansa hangat dan filmis baik pada hasil foto maupun video, pemotongan gambar yang selaras dengan ritme musik, teks terjemahan yang bersih, serta penataan suara atmosferik.",
+          category: "VIDEO & FOTO KOMERSIAL",
+          overview: "Moslem Cinematic merupakan proyek freelance editing untuk kebutuhan dokumentasi perjalanan umrah. Dalam proyek ini, saya bertanggung jawab mengolah foto dan video yang diambil oleh tim dokumentasi di Makkah menjadi hasil akhir yang siap digunakan oleh jemaah.",
+          challenge: "Menjaga konsistensi hasil editing agar foto dan video yang dihasilkan memiliki tampilan visual yang selaras dan sesuai dengan identitas perusahaan.",
+          solution: "Proses editing dilakukan dengan mengikuti identitas visual perusahaan, terutama dalam menjaga konsistensi warna dan color grading pada foto maupun video. Saya menyesuaikan tampilan visual setiap materi agar tetap memiliki tone yang seragam. Pengolahan foto dilakukan menggunakan Adobe Lightroom, sedangkan editing video menggunakan CapCut.",
           deliverables: [
-            "Pengeditan foto, color grading & kurasi dokumentasi perjalanan jamaah",
-            "Video reels komersial vertikal berdurasi pendek (Instagram Reels & TikTok)",
-            "Video dokumentasi sinematik perjalanan grup Umrah & Travel (16:9)",
-            "Video testimoni jamaah & materi promosi visual"
+            "Foto dokumentasi perjalanan umrah yang telah melalui proses editing",
+            "Video dokumentasi perjalanan umrah untuk jemaah",
+            "Lebih dari 80 foto dan 10 video yang telah dikerjakan selama terlibat dalam proyek ini"
           ]
         }
       },
@@ -1775,36 +1821,30 @@
         gallery: [
           "https://lh3.googleusercontent.com/aida-public/AB6AXuBryl3BeOerc5_pTQuROYjM-RypW81icc225xZcS8EQZSIEWYuK_Y3U_1E-sufNgJf464gy4t1dJKVK10F4Ix5yUrBBm6cSbN-nqALy23GCPDgb89iAkFOwSoA-PY60YdiruMdxu1gEdlHoTaRKUvUORS3sXHHqfeCb_CPx4-cxQQWXUsO-TxKDU9vVvyZEMvUpdMbQ-CMmABOYdnpxUUI8qQmWC9XwMUvxx1tc4GMvwr6v6CP9OmbjEox7GZWqwM9bgiqM3Mt3zRqQ"
         ],
-        tools: ["Adobe Photoshop", "Adobe Illustrator", "Adobe Lightroom"],
+        tools: ["Adobe Photoshop"],
         instagram: { handle: "@azkalapparel", url: "https://www.instagram.com/azkalapparel/" },
         en: {
           location: "Surabaya, Indonesia",
           role: "Graphic Designer",
           timeline: "2024",
-          category: "EDITORIAL • FASHION IDENTITY",
-          overview: "Crafted a sharp, urban-editorial lookbook and social media showcase for AZKAL Apparel's seasonal release. The visual direction highlights garment texture, cut, and streetwear attitude through structured multi-frame contact sheets.",
-          challenge: "Standing out in the crowded local apparel market required moving away from generic product-on-white photos toward a cohesive magazine-style lookbook presentation.",
-          solution: "Designed an editorial grid system featuring stark typographic overlays, technical garment spec callouts, color-calibrated photography, and cohesive Instagram feed layouts.",
+          category: "COMMERCIAL CATALOG",
+          overview: "AZKAL Apparel was a freelance graphic design project for the product catalog needs of a newly launched fashion startup. In this project, I assisted the client in creating product catalog designs to be published across their Instagram feed.",
+          challenge: "Transforming raw model photos provided by the client into engaging, cohesive catalog designs tailored for social media product promotion.",
+          solution: "During the design process, I gathered references across digital platforms to establish a compelling aesthetic. I then edited the client's model photography, incorporating product names and complementary design elements to ensure each catalog layout was visually attractive and product information was immediately recognizable.",
           deliverables: [
-            "Seasonal collection digital lookbook & catalog spreads",
-            "Social media launch grid & story promotional assets",
-            "Apparel hangtags, packaging accents & typographic lockups",
-            "High-contrast photo retouching and color treatment"
+            "A series of product catalog designs for Instagram launching and promotional campaign of AZKAL Apparel"
           ]
         },
         id_lang: {
           location: "Surabaya, Indonesia",
           role: "Desainer Grafis",
           timeline: "2024",
-          category: "EDITORIAL • IDENTITAS FASHION",
-          overview: "Merancang lookbook bergaya editorial urban serta materi etalase media sosial untuk koleksi rilisan AZKAL Apparel. Arahan visual menonjolkan tekstur pakaian, potongan, dan karakter streetwear melalui komposisi bingkai multi-kolom.",
-          challenge: "Untuk tampil menonjol di pasar pakaian lokal yang kompetitif, brand membutuhkan presentasi katalog bergaya majalah yang lebih berkarakter dibandingkan foto produk berlatar polos biasa.",
-          solution: "Merancang sistem grid editorial dengan perpaduan tipografi tegas, rincian spesifikasi teknis pakaian, kalibrasi warna fotografi, serta tata letak feed Instagram yang terintegrasi.",
+          category: "KATALOG KOMERSIAL",
+          overview: "AZKAL Apparel merupakan proyek freelance desain grafis untuk kebutuhan katalog produk sebuah bisnis fashion yang baru dirintis. Dalam proyek ini, saya membantu klien membuat desain katalog produk yang akan dipublikasikan melalui feed Instagram.",
+          challenge: "Mengolah foto model yang diberikan klien menjadi desain katalog yang menarik dan sesuai untuk kebutuhan publikasi produk di media sosial.",
+          solution: "Dalam proses pengerjaan, saya mencari referensi desain melalui berbagai media internet sebagai acuan untuk menentukan tampilan katalog. Selanjutnya, saya mengolah foto model yang diberikan klien dengan menambahkan nama produk dan elemen desain pendukung agar setiap katalog memiliki tampilan yang menarik serta informasi produk yang mudah dikenali.",
           deliverables: [
-            "Lookbook digital koleksi musiman & tata letak halaman katalog",
-            "Grid peluncuran media sosial & materi promosi Instagram Story",
-            "Desain hangtag pakaian, aksen kemasan & tipografi logo",
-            "Retouching foto kontras tinggi dan penyelarasan warna"
+            "Sejumlah desain katalog produk melalui Instagram untuk kebutuhan launching publikasi AZKAL Apparel"
           ]
         }
       },
@@ -1813,38 +1853,32 @@
         title: "MADESU (Mantan Dekat, Sekarang Usang)",
         heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuCz4SD0JqIfXzo0bk8RRVDlWQSJ6c3sfseg6napO_p-0-1c8cNT5R3me4q9z-1e5YJpShlx3tyqJoQMrE8K4US8s-U8kIY1gdtJScB5bZreUHa36CWAoOgX5VtlH4oeX7b6NU9cbzRwgKR6cONljAc9RS3Wh1a7GUR3pv2t6nkwWinEfrGJnbPeVSnzKc9-rj7vCUAZJY8WlkTLd-ftig_V636trsdCViDvpGl_GF45P54TgTYRCpvCzOt2HwJLtqifLqL4QqMjFlwH",
         gallery: [
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuCz4SD0JqIfXzo0bk8RRVDlWQSJ6c3sfseg6napO_p-0-1c8cNT5R3me4q9z-1e5YJpShlx3tyqJoQMrE8K4US8s-U8kIY1gdtJScB5bZreUHa36CWAoOgX5VtlH4oeX7b6NU9cbzRwgKR6cONljAc9RS3Wh1a7GUR3pv2t6nkwWinEfrGJnbPeVSnzKc9-rj7vCUAZJY8WlkTLd-ftig_V636trsdCViDvpGl_GF45P54TgTYRCpvCzOt2HwJLtqifLqL4QqMjFlwH"
+          { url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCz4SD0JqIfXzo0bk8RRVDlWQSJ6c3sfseg6napO_p-0-1c8cNT5R3me4q9z-1e5YJpShlx3tyqJoQMrE8K4US8s-U8kIY1gdtJScB5bZreUHa36CWAoOgX5VtlH4oeX7b6NU9cbzRwgKR6cONljAc9RS3Wh1a7GUR3pv2t6nkwWinEfrGJnbPeVSnzKc9-rj7vCUAZJY8WlkTLd-ftig_V636trsdCViDvpGl_GF45P54TgTYRCpvCzOt2HwJLtqifLqL4QqMjFlwH", span: 2 }
         ],
-        tools: ["Adobe Photoshop", "Adobe Lightroom", "Adobe Illustrator"],
+        tools: ["Adobe Photoshop"],
         instagram: { handle: "@jawiruniproduction", url: "https://www.instagram.com/jawiruniproduction/" },
         en: {
           location: "Surabaya, Indonesia",
-          role: "Key Visual & Poster Designer",
+          role: "Producer & Poster Designer",
           timeline: "2024",
-          category: "CINEMA • KEY VISUAL",
-          overview: "Designed the official theatrical poster, title treatment, and digital promotional kit for the short film 'MADESU (Mantan Dekat, Sekarang Usang)'. The visual narrative captures nostalgic warmth mixed with comedic bittersweet tension.",
-          challenge: "A film poster must communicate genre, character dynamics, and emotional tone within a single glance while remaining legible across both large print posters and mobile thumbnails.",
-          solution: "Combined expressive character staging, warm nostalgic paper textures, custom distressed title typography, and a balanced billing block to create an authentic cinema key visual.",
+          category: "FILM POSTER & KEY VISUAL",
+          overview: "MADESU (Mantan Dekat, Sekarang Usang) is a short film production project I developed alongside a compact production team. In this production, I served as a producer while also taking on the additional responsibility of designing the official film poster.",
+          challenge: "Managing two distinct sets of responsibilities simultaneously: overseeing film production coordination and delivering high-impact visual promotion assets.",
+          solution: "Alongside fulfilling my duties as a producer, I designed the film poster as a key visual touchpoint to introduce the film to prospective audiences. The design was crafted to faithfully convey the narrative theme and overall atmosphere of the film.",
           deliverables: [
-            "Main Theatrical Film Poster (Print & Digital High-Res)",
-            "Custom Film Title Lockup & Typography",
-            "Character introduction cards & screening announcement stories",
-            "Behind-the-scenes editorial layout showcase"
+            "Official theatrical release poster for the short film MADESU (Mantan Dekat, Sekarang Usang)"
           ]
         },
         id_lang: {
           location: "Surabaya, Indonesia",
-          role: "Desainer Poster & Key Visual",
+          role: "Produser & Desainer Poster",
           timeline: "2024",
-          category: "SINEMA • KEY VISUAL",
-          overview: "Merancang poster resmi, tipografi judul, dan paket promosi digital untuk film pendek 'MADESU (Mantan Dekat, Sekarang Usang)'. Narasi visual menangkap kehangatan bernuansa nostalgia yang berpadu dengan komedi romantis.",
-          challenge: "Sebuah poster film harus mampu menyampaikan genre, dinamika antar-karakter, dan suasana emosi dalam satu pandangan sekaligus tetap terbaca jelas baik di ukuran cetak maupun layar ponsel.",
-          solution: "Memadukan penataan ekspresi karakter, tekstur kertas bernuansa hangat, tipografi judul kustom bertekstur, serta susunan kredit film yang proporsional.",
+          category: "POSTER FILM & KEY VISUAL",
+          overview: "MADESU (Mantan Dekat, Sekarang Usang) merupakan proyek produksi film pendek yang saya kerjakan bersama tim kecil. Dalam proyek ini, saya berperan sebagai produser sekaligus mengambil tanggung jawab tambahan dalam pembuatan desain poster film.",
+          challenge: "Terlibat dalam dua tanggung jawab berbeda, yaitu produksi film dan pembuatan materi visual untuk kebutuhan promosi film.",
+          solution: "Selain menjalankan peran sebagai produser, saya juga mengerjakan desain poster sebagai salah satu materi visual untuk memperkenalkan film kepada calon penonton. Desain dibuat dengan menyesuaikan tema dan identitas film.",
           deliverables: [
-            "Poster Utama Film (Resolusi Tinggi untuk Cetak & Digital)",
-            "Tipografi & Desain Judul Kustom Film",
-            "Kartu pengenalan karakter & materi pengumuman pemutaran film",
-            "Tata letak presentasi proses kreatif di balik layar"
+            "Poster film pendek MADESU (Mantan Dekat, Sekarang Usang)"
           ]
         }
       },
@@ -1859,32 +1893,38 @@
         instagram: { handle: "@globalyouth.amb", url: "https://www.instagram.com/globalyouth.amb/" },
         en: {
           location: "Yogyakarta, Indonesia",
-          role: "Graphic Designer",
+          role: "Graphic Designer & Event Photographer",
           timeline: "2023 – 2024",
-          category: "CAMPAIGN • YOUTH ORGANIZATION",
-          overview: "Created end-to-end visual campaign assets for Global Youth Ambassador programs—including its flagship international summit, the Istanbul Youth Conference—empowering youth delegates through clear, energetic, and globally accessible visual communication.",
-          challenge: "Communicating complex registration steps, scholarship benefits, and international summit timelines to a diverse global youth audience on social media.",
-          solution: "Engineered a vibrant visual identity system utilizing structured micro-infographics, textured collage elements, and swipeable educational carousels across GYA's core programs and international conferences.",
+          category: "YOUTH CAMPAIGN & MEDIA",
+          overview: "Global Youth Ambassador is a youth empowerment organization that I was involved in during Batches 7 and 9. During my involvement, I was responsible for various graphic design needs as well as documenting the organization's activities and events.",
+          challenge: "Handling varied design requirements to support event execution and promotional outreach. Each collateral piece served a distinct purpose and medium, requiring careful adaptation across formats.",
+          solution: "I delivered across diverse design assets following the organization's visual identity to ensure cohesive presentation. Additionally, I handled on-ground event documentation using a DSLR camera to capture meaningful moments throughout the activities.",
           deliverables: [
-            "Open registration & delegate recruitment campaign feeds",
-            "Educational carousel templates & program countdown graphics",
-            "Visual branding support for flagship programs including Istanbul Youth Conference",
-            "Delegate twibbons, digital certificates, and event guidebooks"
+            "Promotional Collateral: Visual designs for publication and event campaigns",
+            "Certificates: Certificate designs awarded as keepsakes for program participants",
+            "Banners: Event stage and hall backdrop banners for visual staging",
+            "Medals: Commemorative medal designs as participant honors",
+            "Presentation Folders (Map): Event folder designs for participant materials",
+            "ID Cards: Official credential badges for participants and committee members",
+            "Photo Documentation: Live on-ground photo coverage captured directly via DSLR"
           ]
         },
         id_lang: {
           location: "Yogyakarta, Indonesia",
-          role: "Desainer Grafis",
+          role: "Desainer Grafis & Dokumentasi",
           timeline: "2023 – 2024",
-          category: "KAMPANYE • ORGANISASI KEPEMUDAAN",
-          overview: "Merancang rangkaian aset kampanye visual untuk program-program di bawah naungan Global Youth Ambassador—termasuk konferensi unggulannya, Istanbul Youth Conference—guna mendukung delegasi pemuda internasional melalui komunikasi visual yang jelas dan energik.",
-          challenge: "Menyampaikan alur pendaftaran yang detail, manfaat program, dan jadwal konferensi internasional kepada audiens pemuda lintas negara di media sosial secara ringkas.",
-          solution: "Membangun sistem identitas visual menggunakan mikro-infografis terstruktur, elemen kolase modern, serta carousel edukatif yang interaktif untuk program utama GYA dan konferensi internasionalnya.",
+          category: "ORGANISASI & KAMPANYE",
+          overview: "Global Youth Ambassador merupakan organisasi kepemudaan yang saya ikuti pada Batch 7 dan 9. Selama bergabung, saya terlibat dalam pengerjaan berbagai kebutuhan desain grafis serta dokumentasi kegiatan organisasi.",
+          challenge: "Mengerjakan berbagai kebutuhan desain untuk mendukung publikasi dan pelaksanaan acara. Setiap desain memiliki fungsi dan kebutuhan yang berbeda, sehingga perlu disesuaikan dengan media penggunaannya.",
+          solution: "Saya mengerjakan berbagai kebutuhan desain dengan mengikuti identitas visual organisasi agar setiap materi memiliki tampilan yang konsisten. Selain itu, saya juga terlibat langsung dalam dokumentasi kegiatan menggunakan kamera DSLR untuk mengabadikan berbagai momen selama acara berlangsung.",
           deliverables: [
-            "Desain feed kampanye pembukaan pendaftaran & rekrutmen delegasi",
-            "Template carousel edukatif & grafis hitung mundur program",
-            "Dukungan branding visual untuk program naungan termasuk Istanbul Youth Conference",
-            "Twibbon delegasi, sertifikat digital, dan buku panduan acara"
+            "Materi Promosi: Desain untuk kebutuhan publikasi dan promosi kegiatan organisasi",
+            "Sertifikat: Desain sertifikat sebagai kenang-kenangan bagi peserta yang mengikuti kegiatan",
+            "Banner: Desain banner sebagai kebutuhan visual selama kegiatan berlangsung",
+            "Medali: Desain medali sebagai bentuk penghargaan bagi peserta",
+            "Map: Desain map sebagai salah satu perlengkapan kegiatan",
+            "ID Card: Desain kartu identitas untuk peserta maupun panitia",
+            "Dokumentasi Foto: Foto kegiatan yang diambil secara langsung menggunakan kamera DSLR"
           ]
         }
       },
@@ -1902,14 +1942,16 @@
           role: "Graphic Designer",
           timeline: "2023",
           category: "EVENT DESIGN • GYA PROGRAM",
-          overview: "Developed the visual campaign identity and event collateral for the Istanbul Youth Conference, a flagship international summit organized under the umbrella of Global Youth Ambassador. The design bridges cultural heritage motifs from Istanbul with modern conference branding.",
-          challenge: "Building international prestige and visual distinction for GYA's Istanbul summit while maintaining clear information structure across digital touchpoints and physical venue materials.",
-          solution: "Crafted a distinctive deep-crimson and warm-ivory palette paired with architectural photography, clean speaker spotlight frames, and cohesive stage and lanyard merchandise graphics.",
+          overview: "Istanbul Youth Conference was an international youth conference project where I was entrusted with developing graphic design assets to support both digital publication and on-ground event delivery.",
+          challenge: "Preparing diverse design deliverables for an international conference taking place in Turkey, tailoring each material to its specific function while preserving unified visual consistency.",
+          solution: "I designed all materials remotely from Indonesia following the conference visual guidelines and event specifications. Every asset was customized for its end-use medium, encompassing promotional publication content and event accessories.",
           deliverables: [
-            "Conference key visual & international registration campaign",
-            "Speaker announcement cards & agenda breakdown carousels",
-            "Stage backdrop banners, delegate ID lanyards & certificates",
-            "Social media countdown & live-event coverage templates"
+            "Promotional Collateral: Visual designs for publication and conference promotion",
+            "Certificates: Certificate design as commemorative keepsakes for conference delegates",
+            "Banners: Stage and hall event banners for conference atmosphere and backdrop",
+            "Medals: Honor medal designs for conference delegates",
+            "Presentation Folders (Map): Event folder designs for conference documentation",
+            "ID Cards: Official delegate and committee identification passes"
           ]
         },
         id_lang: {
@@ -1917,14 +1959,16 @@
           role: "Desainer Grafis",
           timeline: "2023",
           category: "DESAIN ACARA • PROGRAM GYA",
-          overview: "Mengembangkan identitas visual kampanye dan perlengkapan acara untuk Istanbul Youth Conference, program konferensi internasional unggulan yang berada di bawah naungan Global Youth Ambassador. Desain ini memadukan nuansa arsitektur ikonik Istanbul dengan gaya branding konferensi modern.",
-          challenge: "Membangun kredibilitas dan karakter visual yang kuat untuk konferensi GYA di Istanbul sekaligus menjaga keterbacaan informasi di kanal digital maupun materi fisik acara.",
-          solution: "Merancang palet warna merah marun (crimson) dan gading hangat yang dipadukan dengan fotografi arsitektural, bingkai profil pembicara yang rapi, serta desain backdrop dan ID lanyard yang seragam.",
+          overview: "Istanbul Youth Conference merupakan proyek konferensi kepemudaan yang melibatkan saya dalam pengerjaan berbagai kebutuhan desain grafis untuk mendukung publikasi dan pelaksanaan acara.",
+          challenge: "Menyiapkan berbagai kebutuhan desain untuk konferensi yang diselenggarakan di Turki. Setiap materi perlu disesuaikan dengan fungsi dan kebutuhan acara, sekaligus menjaga konsistensi tampilan visual.",
+          solution: "Saya mengerjakan desain dari Indonesia dengan mengikuti identitas visual dan kebutuhan konferensi. Setiap materi disesuaikan dengan media penggunaannya, baik untuk kebutuhan publikasi maupun perlengkapan acara.",
           deliverables: [
-            "Key visual konferensi & kampanye pendaftaran internasional",
-            "Kartu pengumuman pembicara & carousel susunan agenda acara",
-            "Desain banner panggung, lanyard ID delegasi & sertifikat",
-            "Template hitung mundur media sosial & liputan langsung acara"
+            "Materi Promosi: Desain untuk kebutuhan publikasi dan promosi konferensi",
+            "Sertifikat: Desain sertifikat sebagai kenang-kenangan bagi peserta konferensi",
+            "Banner: Desain banner sebagai bagian dari kebutuhan visual acara",
+            "Medali: Desain medali sebagai bentuk penghargaan bagi peserta konferensi",
+            "Map: Desain map sebagai salah satu perlengkapan acara",
+            "ID Card: Desain kartu identitas untuk peserta maupun panitia"
           ]
         }
       }
@@ -1932,7 +1976,7 @@
 
     const PROJECT_KEYS = Object.keys(PROJECTS_DATA);
 
-    // Apply Language UI
+    // Apply ID / EN UI translations
     function applyLanguage(lang) {
       currentLang = lang;
       try { localStorage.setItem('lang', lang); } catch (e) {}
@@ -1956,8 +2000,8 @@
           flagEnEl.classList.add('hidden');
           flagIdEl.classList.remove('hidden');
         } else {
-          flagIdEl.classList.add('hidden');
-          flagEnEl.classList.remove('hidden');
+          flagEnEl.classList.add('hidden');
+          flagIdEl.classList.remove('hidden');
         }
       }
 
@@ -1978,10 +2022,10 @@
       applyLanguage(nextLang);
     }
 
-    // Centered Smooth Scroll with Header Compensation
+    // Smooth scroll with fixed header compensation
     function scrollToTargetSection(targetHash, event = null) {
       if (event) event.preventDefault();
-      
+
       const detailView = document.getElementById('project-detail-view');
       const mainView = document.getElementById('portfolio-main-view');
 
@@ -1989,12 +2033,13 @@
         detailView.classList.add('hidden');
         mainView.classList.remove('hidden');
         currentOpenProjectId = null;
+        startAutoSlide();
       }
 
       const targetEl = document.querySelector(targetHash);
       if (!targetEl) return;
 
-      history.pushState(null, '', targetHash);
+      try { history.pushState(null, '', targetHash); } catch (e) {}
 
       setTimeout(() => {
         const headerHeight = 72;
@@ -2019,31 +2064,43 @@
       }, 50);
     }
 
-    // Open Dynamic Project Detail
+    // Render project detail view
     function openProjectDetail(projectId, updateHash = true, scrollToTop = true) {
       const projectBase = PROJECTS_DATA[projectId];
       if (!projectBase) return;
       currentOpenProjectId = projectId;
+      stopAutoSlide();
 
-      const p = currentLang === 'id' ? projectBase.id_lang : projectBase.en;
+      const langData = (currentLang === 'id' ? projectBase.id_lang : projectBase.en) || projectBase.id_lang || projectBase.en || {};
       const t = UI_TRANSLATIONS[currentLang] || UI_TRANSLATIONS.id;
+
+      const p = {
+        category: langData.category || "PROJECT",
+        location: langData.location || "Indonesia",
+        role: langData.role || "Desainer Visual",
+        timeline: langData.timeline || "-",
+        overview: langData.overview || "",
+        challenge: langData.challenge || "",
+        solution: langData.solution || "",
+        deliverables: Array.isArray(langData.deliverables) ? langData.deliverables : []
+      };
 
       const currentIndex = PROJECT_KEYS.indexOf(projectId);
       const prevKey = PROJECT_KEYS[(currentIndex - 1 + PROJECT_KEYS.length) % PROJECT_KEYS.length];
       const nextKey = PROJECT_KEYS[(currentIndex + 1) % PROJECT_KEYS.length];
-      const prevProject = PROJECTS_DATA[prevKey];
-      const nextProject = PROJECTS_DATA[nextKey];
+      const prevProject = PROJECTS_DATA[prevKey] || projectBase;
+      const nextProject = PROJECTS_DATA[nextKey] || projectBase;
 
       const detailContainer = document.getElementById('project-detail-content');
       detailContainer.innerHTML = `
         <div class="view-animate">
-          <!-- Top Back Navigation Bar -->
+          <!-- Top Back Button -->
           <div class="flex items-center justify-between pb-5 mb-8 border-b border-black/10 dark:border-white/10">
             <button onclick="returnToPortfolio('#work', event)" type="button" class="magnetic-btn inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-200/80 dark:bg-white/10 border border-black/5 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-[#F3F5F8] hover:bg-[#2D46EC] hover:text-white dark:hover:bg-[#5B73FF] shadow-sm transition-all">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l6-6m-6 6l6 6"/>
               </svg>
-              <span>${t["detail.back"]}</span>
+              <span>${t["detail.back"] || "Kembali ke Karya"}</span>
             </button>
           </div>
 
@@ -2053,7 +2110,7 @@
               ${p.category}
             </span>
             <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-neutral-900 dark:text-[#F3F5F8] tracking-tight leading-[1.1]">
-              ${projectBase.title}
+              ${projectBase.title || "Project Detail"}
             </h1>
             <div class="flex flex-wrap items-center gap-3 mt-3 text-sm sm:text-base text-neutral-600 dark:text-[#9BA5B7]">
               <span class="inline-flex items-center gap-1.5 font-medium">
@@ -2065,67 +2122,67 @@
               </span>
               ${projectBase.instagram ? `
                 <span>•</span>
-                <a href="${projectBase.instagram.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF] hover:underline">
+                <a href="${projectBase.instagram.url || '#'}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#2D46EC] dark:text-[#5B73FF] hover:underline">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
-                  <span>${projectBase.instagram.handle}</span>
+                  <span>${projectBase.instagram.handle || ''}</span>
                 </a>
               ` : ''}
             </div>
           </div>
 
-          <!-- Metadata Spec Bar: 3 Clean Columns in Royal Blue -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 sm:p-6 rounded-2xl bg-[#2D46EC] dark:bg-[#1C2545] border border-white/10 dark:border-[#5B73FF]/40 text-white shadow-md mb-8 sm:mb-10">
+          <!-- Metadata Spec Bar -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 sm:p-6 rounded-2xl bg-[#2D46EC] dark:bg-[#151D2C] border border-white/10 dark:border-[#5B73FF]/40 text-white shadow-md mb-8 sm:mb-10">
             <div>
-              <span class="font-mono text-[10px] uppercase tracking-widest text-white/70 block">${t["detail.role"]}</span>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-white/70 block">${t["detail.role"] || "Peran & Fungsi"}</span>
               <span class="font-display font-bold text-sm sm:text-base text-white mt-1 block">${p.role}</span>
             </div>
             <div>
-              <span class="font-mono text-[10px] uppercase tracking-widest text-white/70 block">${t["detail.timeline"]}</span>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-white/70 block">${t["detail.timeline"] || "Waktu Pengerjaan"}</span>
               <span class="font-mono font-semibold text-xs sm:text-sm text-white mt-1 block">${p.timeline}</span>
             </div>
             <div>
-              <span class="font-mono text-[10px] uppercase tracking-widest text-white/70 block">${t["detail.stack"]}</span>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-white/70 block">${t["detail.stack"] || "Perangkat Lunak"}</span>
               <div class="flex flex-wrap gap-1.5 mt-1.5">
-                ${projectBase.tools.map(tool => `<span class="px-2 py-0.5 rounded bg-white/15 backdrop-blur-sm text-[10px] font-mono text-white font-medium border border-white/20">${tool}</span>`).join('')}
+                ${(projectBase.tools || []).map(tool => `<span class="px-2 py-0.5 rounded bg-white/15 backdrop-blur-sm text-[10px] font-mono text-white font-medium border border-white/20">${tool}</span>`).join('')}
               </div>
             </div>
           </div>
 
-          <!-- Main Showcase Image Plate -->
-          <div class="rounded-2xl overflow-hidden bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 p-2 sm:p-3 shadow-lg mb-10 sm:mb-12">
-            <img src="${projectBase.heroImage}" alt="${projectBase.title}" class="w-full h-auto rounded-xl object-cover"/>
+          <!-- Hero Image -->
+          <div class="rounded-2xl overflow-hidden bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 p-2 sm:p-3 shadow-lg mb-10 sm:mb-12">
+            <img src="${projectBase.heroImage || ''}" alt="${projectBase.title || ''}" class="w-full h-auto rounded-xl object-cover"/>
           </div>
 
-          <!-- Editorial Case Study Breakdown -->
+          <!-- Editorial Breakdown -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 mb-12">
             <div class="lg:col-span-7 space-y-6">
               <!-- Overview -->
-              <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1C222E] border-l-4 border-l-[#2D46EC] dark:border-l-[#5B73FF] border border-black/10 dark:border-white/10 shadow-sm">
+              <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#151D2C] border-l-4 border-l-[#2D46EC] dark:border-l-[#5B73FF] border border-black/10 dark:border-white/10 shadow-sm">
                 <h2 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF] mb-3">
-                  ${t["detail.sec1"]}
+                  ${t["detail.sec1"] || "RINGKASAN PROYEK"}
                 </h2>
-                <p class="text-neutral-700 dark:text-[#F3F5F8] text-base sm:text-lg leading-relaxed">
+                <p class="text-neutral-700 dark:text-[#F3F5F8] text-base sm:text-lg leading-relaxed font-normal">
                   ${p.overview}
                 </p>
               </div>
 
               <!-- Challenge & Solution -->
-              <div class="p-6 sm:p-7 rounded-2xl bg-[#F1F3F7] dark:bg-[#151A23] border border-black/5 dark:border-white/10 space-y-5">
+              <div class="p-6 sm:p-7 rounded-2xl bg-[#F1F3F7] dark:bg-[#090D14] border border-black/5 dark:border-white/10 space-y-5">
                 <div class="border-l-2 border-red-500 pl-3">
                   <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-red-600 dark:text-red-400 mb-2 flex items-center gap-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                    <span>${t["detail.sec2"]}</span>
+                    <span>${t["detail.sec2"] || "TANTANGAN"}</span>
                   </h3>
                   <p class="text-neutral-600 dark:text-[#9BA5B7] text-sm sm:text-base leading-relaxed">
                     ${p.challenge}
                   </p>
                 </div>
-                <div class="pt-4 border-t border-black/10 dark:border-white/10 border-l-2 border-[#2D46EC] dark:border-[#5B73FF] pl-3">
+                <div class="border-l-2 border-[#2D46EC] dark:border-[#5B73FF] pl-3">
                   <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF] mb-2 flex items-center gap-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
-                    <span>${t["detail.sec3"]}</span>
+                    <span>${t["detail.sec3"] || "ARAHAN VISUAL & SOLUSI"}</span>
                   </h3>
                   <p class="text-neutral-600 dark:text-[#9BA5B7] text-sm sm:text-base leading-relaxed">
                     ${p.solution}
@@ -2135,83 +2192,97 @@
             </div>
 
             <!-- Deliverables -->
-          <div class="lg:col-span-5">
-            <div class="p-6 sm:p-7 rounded-2xl bg-[#F1F4FF] dark:bg-[#1A2234] border border-[#2D46EC]/20 dark:border-[#5B73FF]/30 shadow-sm sticky top-24">
-              <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF] mb-4">
-                ${t["detail.sec4"]}
-              </h3>
-              <ul class="space-y-3">
-                ${p.deliverables.map(item => `
-                  <li class="flex items-start gap-2.5 text-sm sm:text-base text-neutral-800 dark:text-[#F3F5F8]">
-                    <span class="w-5 h-5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] text-white flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
-                    <span>${item}</span>
-                  </li>
-                `).join('')}
-              </ul>
+            <div class="lg:col-span-5">
+              <div class="p-6 sm:p-7 rounded-2xl bg-[#F1F4FF] dark:bg-[#111726] border border-[#2D46EC]/20 dark:border-[#5B73FF]/30 shadow-sm sticky top-24">
+                <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF] mb-4">
+                  ${t["detail.sec4"] || "HASIL KARYA"}
+                </h3>
+                <ul class="space-y-3">
+                  ${p.deliverables.map(item => `
+                    <li class="flex items-start gap-2.5 text-sm sm:text-base text-neutral-800 dark:text-[#F3F5F8]">
+                      <span class="w-5 h-5 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF] text-white flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                      <span>${item}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Project Gallery Section: 2 Columns on Mobile, 3 Columns on Desktop, with Landscape Span Support -->
-        ${projectBase.gallery && projectBase.gallery.length > 0 ? `
-          <div class="mb-10 sm:mb-12 pt-8 border-t border-black/10 dark:border-white/10">
-            <div class="mb-5 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
-              <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF]">
-                ${t["detail.galleryTitle"]}
-              </span>
-            </div>
+          <!-- Sample Works Gallery -->
+          ${projectBase.gallery && projectBase.gallery.length > 0 ? `
+            <div class="mb-10 sm:mb-12 pt-8 border-t border-black/10 dark:border-white/10">
+              <div class="mb-5 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#2D46EC] dark:bg-[#5B73FF]"></span>
+                <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2D46EC] dark:text-[#5B73FF]">
+                  ${t["detail.galleryTitle"] || "HASIL KARYA & MEDIA"}
+                </span>
+              </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
-              ${projectBase.gallery.map((item, idx) => {
-                const isObj = typeof item === 'object' && item !== null;
-                const imgSrc = isObj ? item.url : item;
-                const isLandscape = isObj && (item.span === 2 || item.span === 'full' || item.aspect === 'landscape');
-                const isFull = isObj && item.span === 'full';
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
+                ${projectBase.gallery.map((item, idx) => {
+                  const isObj = typeof item === 'object' && item !== null;
+                  const isDriveVideo = isObj && item.type === 'drive';
+                  const isPortrait = isObj && (item.aspect === 'portrait' || item.aspect === 'vertical');
+                  const isLandscape = isObj && (item.span === 2 || item.span === 'full' || item.aspect === 'landscape');
+                  const isFull = isObj && item.span === 'full';
+                  const src = isObj ? item.url : item;
 
-                const colSpanClass = isFull 
-                  ? 'col-span-2 md:col-span-3' 
-                  : (isLandscape ? 'col-span-2 md:col-span-2' : 'col-span-1 md:col-span-1');
+                  const colSpanClass = isFull
+                    ? 'col-span-2 md:col-span-3'
+                    : (isLandscape ? 'col-span-2 md:col-span-2' : 'col-span-1 md:col-span-1');
 
-                const aspectClass = (isLandscape || isFull) 
-                  ? 'aspect-[16/9] sm:aspect-[16/9]' 
-                  : 'aspect-square sm:aspect-[4/5]';
+                  const aspectClass = isPortrait
+                    ? 'aspect-[9/16]'
+                    : ((isLandscape || isFull) ? 'aspect-[16/9]' : 'aspect-square sm:aspect-[4/5]');
 
-                return `
-                  <div class="${colSpanClass} group relative overflow-hidden rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 p-1.5 sm:p-2 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <div class="${aspectClass} w-full overflow-hidden rounded-lg bg-neutral-100 dark:bg-[#151A23]">
-                      <img 
-                        src="${imgSrc}" 
-                        alt="${projectBase.title} — Visual ${idx + 1}" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
+                  return `
+                    <div class="${colSpanClass} group relative overflow-hidden rounded-xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 p-1.5 sm:p-2 shadow-sm hover:shadow-lg transition-all duration-300">
+                      <div class="${aspectClass} w-full overflow-hidden rounded-lg bg-neutral-900 flex items-center justify-center">
+                        ${isDriveVideo ? `
+                          <iframe
+                            src="${src}"
+                            class="w-full h-full rounded-lg border-0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen
+                            loading="lazy"
+                          ></iframe>
+                        ` : `
+                          <img
+                            src="${src}"
+                            alt="${projectBase.title || 'Visual'} ${idx + 1}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        `}
+                      </div>
                     </div>
-                  </div>
-                `;
-              }).join('')}
+                  `;
+                }).join('')}
+              </div>
             </div>
+          ` : ''}
+
+          <!-- Bottom Navigation: Non-overlapping Previous / Next Project -->
+          <div class="pt-6 sm:pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-between sm:gap-4 w-full">
+            <button onclick="openProjectDetail('${prevProject.id}')" type="button" class="text-left p-2.5 sm:px-5 sm:py-3.5 rounded-xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group w-full min-w-0 overflow-hidden sm:max-w-xs flex flex-col justify-center">
+              <span class="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-neutral-400 dark:text-[#9BA5B7] block truncate w-full">← ${t["detail.prev"] || "Sebelumnya"}</span>
+              <span class="font-display font-bold text-[11px] sm:text-sm text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block line-clamp-1 truncate w-full break-words">${prevProject.title || ''}</span>
+            </button>
+            <button onclick="openProjectDetail('${nextProject.id}')" type="button" class="text-right p-2.5 sm:px-5 sm:py-3.5 rounded-xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group w-full min-w-0 overflow-hidden sm:max-w-xs sm:ml-auto flex flex-col justify-center items-end">
+              <span class="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-neutral-400 dark:text-[#9BA5B7] block truncate w-full">${t["detail.next"] || "Selanjutnya"} →</span>
+              <span class="font-display font-bold text-[11px] sm:text-sm text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block line-clamp-1 truncate w-full break-words">${nextProject.title || ''}</span>
+            </button>
           </div>
-        ` : ''}
-
-        <!-- Bottom Navigation: Compact 2-Column Grid on Mobile (Side-by-Side), Corner Pill Cards on Desktop -->
-        <div class="pt-6 sm:pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-between sm:gap-4 w-full">
-          <button onclick="openProjectDetail('${prevProject.id}')" type="button" class="text-left p-2.5 sm:px-5 sm:py-3.5 rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group w-full min-w-0 overflow-hidden sm:max-w-xs flex flex-col justify-center">
-            <span class="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-widest text-neutral-400 dark:text-[#9BA5B7] block truncate w-full">← ${t["detail.prev"]}</span>
-            <span class="font-display font-bold text-[11px] sm:text-sm text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block line-clamp-1 truncate w-full break-words">${prevProject.title}</span>
-          </button>
-          <button onclick="openProjectDetail('${nextProject.id}')" type="button" class="text-right p-2.5 sm:px-5 sm:py-3.5 rounded-xl bg-white dark:bg-[#1C222E] border border-black/10 dark:border-white/10 hover:border-[#2D46EC] dark:hover:border-[#5B73FF] hover:shadow-md transition-all group w-full min-w-0 overflow-hidden sm:max-w-xs sm:ml-auto flex flex-col justify-center items-end">
-            <span class="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-widest text-neutral-400 dark:text-[#9BA5B7] block truncate w-full">${t["detail.next"]} →</span>
-            <span class="font-display font-bold text-[11px] sm:text-sm text-neutral-900 dark:text-[#F3F5F8] group-hover:text-[#2D46EC] dark:group-hover:text-[#5B73FF] mt-0.5 block line-clamp-1 truncate w-full break-words">${nextProject.title}</span>
-          </button>
         </div>
-      </div>
-    `;
+      `;
 
-    document.getElementById('portfolio-main-view').classList.add('hidden');
+      document.getElementById('portfolio-main-view').classList.add('hidden');
       document.getElementById('project-detail-view').classList.remove('hidden');
 
-      if (updateHash) history.pushState({ projectId }, '', `#project-${projectId}`);
+      if (updateHash) {
+        try { history.pushState({ projectId }, '', `#project-${projectId}`); } catch (e) {}
+      }
       if (scrollToTop) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -2224,8 +2295,11 @@
         currentOpenProjectId = null;
         detailView.classList.add('hidden');
         mainView.classList.remove('hidden');
-        history.pushState(null, '', targetHash);
-        setTimeout(() => scrollToTargetSection(targetHash), 40);
+        try { history.pushState(null, '', targetHash); } catch (e) {}
+        setTimeout(() => {
+          scrollToTargetSection(targetHash);
+          startAutoSlide();
+        }, 40);
       }
     }
 
@@ -2241,6 +2315,7 @@
       currentOpenProjectId = null;
       document.getElementById('project-detail-view').classList.add('hidden');
       document.getElementById('portfolio-main-view').classList.remove('hidden');
+      startAutoSlide();
     });
 
     // Resume Modal Controls
@@ -2248,19 +2323,21 @@
       const modal = document.getElementById('resume-modal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      stopAutoSlide();
     }
 
     function closeResumeModal() {
       const modal = document.getElementById('resume-modal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+      startAutoSlide();
     }
 
     document.getElementById('resume-modal').addEventListener('click', (e) => {
       if (e.target.id === 'resume-modal') closeResumeModal();
     });
 
-    // Clipboard Copy
+    // Clipboard Copy for Email
     function copyEmailAddress(btn) {
       const email = 'naufaladityafahrezi@gmail.com';
       const dict = UI_TRANSLATIONS[currentLang] || UI_TRANSLATIONS.id;
@@ -2288,7 +2365,7 @@
       document.body.removeChild(ta);
     }
 
-    // Mobile Hamburger
+    // Mobile Drawer Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
     const openIcon = document.getElementById('hamburger-open-icon');
@@ -2309,11 +2386,39 @@
     });
 
     // =================================================================
-    // STACKED DECK SLIDER CONTROLLER (Real-time Physical Touch Tracking)
+    // 3D CAROUSEL & AUTO-SLIDE CONTROLLER (EVERY 6 SECONDS)
     // =================================================================
     let currentSlideIndex = 0;
     let visibleCards = [];
     let currentFilter = 'all';
+    let autoSlideInterval = null;
+    const AUTO_SLIDE_DELAY = 6000;
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      const detailView = document.getElementById('project-detail-view');
+      const resumeModal = document.getElementById('resume-modal');
+
+      if (document.hidden) return;
+      if (detailView && !detailView.classList.contains('hidden')) return;
+      if (resumeModal && !resumeModal.classList.contains('hidden')) return;
+
+      autoSlideInterval = setInterval(() => {
+        navigateSlide(1, false);
+      }, AUTO_SLIDE_DELAY);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    }
+
+    function resetAutoSlideTimer() {
+      stopAutoSlide();
+      startAutoSlide();
+    }
 
     function initCarousel() {
       const allCards = Array.from(document.querySelectorAll('#stack-carousel-stage .stack-card'));
@@ -2326,6 +2431,8 @@
       renderCarouselPositions();
       renderDots();
       setupPhysicalTouchDrag();
+      setupAutoSlideListeners();
+      startAutoSlide();
     }
 
     function renderCarouselPositions() {
@@ -2369,6 +2476,7 @@
         dot.onclick = () => {
           currentSlideIndex = idx;
           renderCarouselPositions();
+          resetAutoSlideTimer();
         };
         dotsContainer.appendChild(dot);
       });
@@ -2385,13 +2493,16 @@
       });
     }
 
-    function navigateSlide(direction) {
+    function navigateSlide(direction, isManual = true) {
       if (visibleCards.length <= 1) return;
       currentSlideIndex = (currentSlideIndex + direction + visibleCards.length) % visibleCards.length;
       renderCarouselPositions();
+      if (isManual) {
+        resetAutoSlideTimer();
+      }
     }
 
-    function handleCardInteraction(projectId, cardEl, event) {
+    function handleCardInteraction(projectId, cardEl) {
       const pos = cardEl.getAttribute('data-pos');
       if (pos === '0') {
         openProjectDetail(projectId);
@@ -2402,7 +2513,27 @@
       }
     }
 
-    // Touch Drag Physics
+    let autoSlideListenersBound = false;
+    function setupAutoSlideListeners() {
+      if (autoSlideListenersBound) return;
+      autoSlideListenersBound = true;
+
+      const carouselWrapper = document.getElementById('carousel-outer-wrapper');
+      if (carouselWrapper) {
+        carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
+        carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopAutoSlide();
+        } else {
+          startAutoSlide();
+        }
+      });
+    }
+
+    // Drag & Swipe Physics
     function setupPhysicalTouchDrag() {
       const stage = document.getElementById('stack-carousel-stage');
       let startX = 0;
@@ -2419,6 +2550,7 @@
 
       function onDragStart(e) {
         if (visibleCards.length <= 1) return;
+        stopAutoSlide();
         isDragging = true;
         isHorizontalSwipe = null;
         startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
@@ -2503,10 +2635,11 @@
         } else {
           renderCarouselPositions();
         }
+        resetAutoSlideTimer();
       }
     }
 
-    // Keyboard Arrow Navigation
+    // Keyboard Arrow Support
     window.addEventListener('keydown', (e) => {
       const detailView = document.getElementById('project-detail-view');
       if (detailView && !detailView.classList.contains('hidden')) return;
@@ -2515,7 +2648,7 @@
       if (e.key === 'ArrowLeft') navigateSlide(-1);
     });
 
-    // Theme Switcher & System Initializer
+    // Initialization: Theme, Language, Filters, Scroll Reveal, Glow & Parallax
     (function() {
       applyLanguage(currentLang);
 
@@ -2562,7 +2695,7 @@
 
       initCarousel();
 
-      // Filter Buttons
+      // Category Filter Buttons
       const filterButtons = document.querySelectorAll('#portfolio-filters .filter-btn');
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -2580,7 +2713,7 @@
         });
       });
 
-      // Scroll Reveal & Re-triggering Pop-up + Skill Bars
+      // Scroll Reveal Observer
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const bars = entry.target.querySelectorAll('.skill-bar');
@@ -2596,7 +2729,7 @@
 
       document.querySelectorAll('.reveal-item').forEach(el => revealObserver.observe(el));
 
-      // Cursor Glow & Parallax
+      // Global Cursor Glow & Hero Artwork Parallax
       const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
