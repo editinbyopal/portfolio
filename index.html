@@ -1312,7 +1312,7 @@
   <!-- ================================================================= -->
   <section id="project-detail-view" class="hidden min-h-screen bg-[#F8F8F5] dark:bg-[#0D1117] site-section pb-24">
     <div class="section-grid-layer grid-subtle"></div>
-    <div class="max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-12 relative z-10" id="project-detail-content">
+    <div class="max-w-5xl mx-auto px-5 sm:px-6 pt-20 sm:pt-24 relative z-10" id="project-detail-content">
       <!-- Populated dynamically by JavaScript -->
     </div>
   </section>
@@ -1769,21 +1769,21 @@
         heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBXUFS2dFmg2zkuMs12LmaP5hXNLnposcSZTYONnBurBtulb-X6a2fJNWy8ngzhX1WL5kIIO3NPNunMt4ndmi9iyIace-XRyRQCDCGebU_E3IuaICL-NEhja5WBoIxzitqGLjBMGEcc7l-VNdrITwOorQpuakIkFNyonzZdBuOXQ21TlDFUVAGZbfe1G5TGhUO1grRH8z6AFsRBNGwGu5TfW94Xo4zXahYZTvPmjW6yrtztiYwY5ndVCzYsUOfOvZxm",
         gallery: [
           {
-            type: "drive",
-            url: "https://drive.google.com/file/u/0/d/1A7DfkcH5hZrpraxM-4jUe0i8p9Ep4yPE/preview",
+            type: "video",
+            src: "https://res.cloudinary.com/wwbmd6ve/video/upload/v1795592286/Kak_Elawati_Makkah.mov.mov",
             aspect: "portrait",
             title: "Video Dokumentasi 01"
           },
           {
-            type: "drive",
-            url: "https://drive.google.com/file/d/1KI6CHqJJb7d-BaUBPdoJmNmOhiRAq5tF/preview",
+            type: "video",
+            src: "https://res.cloudinary.com/wwbmd6ve/video/upload/v1795598556/lv_0_20261125143924.mp4",
             aspect: "portrait",
             title: "Video Dokumentasi 02"
           },
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuBXUFS2dFmg2zkuMs12LmaP5hXNLnposcSZTYONnBurBtulb-X6a2fJNWy8ngzhX1WL5kIIO3NPNunMt4ndmi9iyIace-XRyRQCDCGebU_E3IuaICL-NEhja5WBoIxzitqGLjBMGEcc7l-VNdrITwOorQpuakIkFNyonzZdBuOXQ21TlDFUVAGZbfe1G5TGhUO1grRH8z6AFsRBNGwGu5TfW94Xo4zXahYZTvPmjW6yrtztiYwY5ndVCzYsUOfOvZxm",
-          "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80",
-          "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80",
-          "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=800&q=80"
+          "asset/IMG_3178.jpg",
+          "asset/IMG_3539.jpg",
+          "asset/IMG_8920.jpg",
+          "asset/IMG_9591.jpg"
         ],
         tools: ["CapCut", "Adobe Lightroom"],
         instagram: { handle: "@moslem.cinematic", url: "https://www.instagram.com/moslem.cinematic/" },
@@ -2213,8 +2213,8 @@
 
           <!-- Sample Works Gallery -->
           ${projectBase.gallery && projectBase.gallery.length > 0 ? (() => {
-            const driveVideos = projectBase.gallery.filter(item => typeof item === 'object' && item !== null && item.type === 'drive');
-            const otherItems = projectBase.gallery.filter(item => !(typeof item === 'object' && item !== null && item.type === 'drive'));
+            const videoItems = projectBase.gallery.filter(item => typeof item === 'object' && item !== null && (item.type === 'video' || item.type === 'drive'));
+            const otherItems = projectBase.gallery.filter(item => !(typeof item === 'object' && item !== null && (item.type === 'video' || item.type === 'drive')));
 
             return `
               <div class="mb-10 sm:mb-12 pt-8 border-t border-black/10 dark:border-white/10 space-y-8">
@@ -2225,24 +2225,35 @@
                   </span>
                 </div>
 
-                ${driveVideos.length > 0 ? `
+                ${videoItems.length > 0 ? `
                   <div>
                     <h4 class="font-mono text-[11px] uppercase tracking-wider text-neutral-500 dark:text-[#9BA5B7] mb-3.5 flex items-center gap-1.5">
                       <span>▶</span>
                       <span>Video Dokumentasi Reels (Format Portrait 9:16)</span>
                     </h4>
-                    <!-- Centered 2-column container for portrait videos -->
-                    <div class="grid grid-cols-2 max-w-sm sm:max-w-md md:max-w-xl mx-auto gap-3 sm:gap-5 justify-center">
-                      ${driveVideos.map((video) => `
-                        <div class="group relative overflow-hidden rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 p-1.5 sm:p-2 shadow-md hover:shadow-xl transition-all duration-300">
+                    <!-- Responsive container for portrait videos: vertical on mobile, centered row on sm+ -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center max-w-2xl mx-auto gap-5 sm:gap-6">
+                      ${videoItems.map((video) => `
+                        <div class="w-full max-w-[260px] sm:w-[260px] md:w-[280px] group relative overflow-hidden rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/15 p-1.5 sm:p-2 shadow-md hover:shadow-xl transition-all duration-300">
                           <div class="aspect-[9/16] w-full overflow-hidden rounded-xl bg-black relative flex items-center justify-center">
-                            <iframe
-                              src="${video.url}"
-                              class="w-full h-full rounded-xl border-0"
-                              allow="autoplay; encrypted-media"
-                              allowfullscreen
-                              loading="lazy"
-                            ></iframe>
+                            ${video.type === 'video' ? `
+                              <video
+                                src="${video.src || video.url}"
+                                ${video.poster ? `poster="${video.poster}"` : ''}
+                                class="w-full h-full object-cover rounded-xl"
+                                controls
+                                playsinline
+                                preload="metadata"
+                              ></video>
+                            ` : `
+                              <iframe
+                                src="${video.url}"
+                                class="w-full h-full rounded-xl border-0"
+                                allow="autoplay; encrypted-media"
+                                allowfullscreen
+                                loading="lazy"
+                              ></iframe>
+                            `}
                           </div>
                         </div>
                       `).join('')}
@@ -2252,7 +2263,7 @@
 
                 ${otherItems.length > 0 ? `
                   <div>
-                    ${driveVideos.length > 0 ? `
+                    ${videoItems.length > 0 ? `
                       <h4 class="font-mono text-[11px] uppercase tracking-wider text-neutral-500 dark:text-[#9BA5B7] mb-3.5 flex items-center gap-1.5 pt-2">
                         <span>📷</span>
                         <span>Dokumentasi Foto Hasil Editing</span>
