@@ -1403,6 +1403,27 @@
     </div>
   </div>
 
+  
+  <!-- ================================================================= -->
+  <!-- IMAGE PREVIEW LIGHTBOX MODAL                                      -->
+  <!-- ================================================================= -->
+  <div id="image-lightbox-modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md transition-all duration-300" onclick="handleLightboxBackdropClick(event)">
+    <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center justify-center pointer-events-auto">
+      <!-- Close Button -->
+      <button onclick="closeImageLightbox()" type="button" aria-label="Tutup Pratinjau" class="absolute -top-12 right-0 sm:right-2 sm:-top-12 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white flex items-center justify-center border border-white/20 transition-all text-lg font-mono">
+        ✕
+      </button>
+
+      <!-- Image Preview Container -->
+      <div class="relative w-full max-h-[82vh] flex items-center justify-center overflow-hidden rounded-xl bg-black/40">
+        <img id="lightbox-img" src="" alt="Pratinjau Karya" class="max-w-full max-h-[82vh] w-auto h-auto object-contain rounded-xl shadow-2xl transition-transform duration-300" />
+      </div>
+
+      <!-- Caption -->
+      <p id="lightbox-caption" class="text-white/80 font-mono text-xs sm:text-sm mt-3 text-center tracking-wide px-4 truncate max-w-2xl"></p>
+    </div>
+  </div>
+
   <!-- ================================================================= -->
   <!-- FOOTER                                                            -->
   <!-- ================================================================= -->
@@ -2275,42 +2296,48 @@
                 ${otherItems.length > 0 ? `
                   <div>
                     ${videoItems.length > 0 ? `
-                      <h4 class="font-mono text-[11px] uppercase tracking-wider text-neutral-500 dark:text-[#9BA5B7] mb-3.5 flex items-center gap-1.5 pt-2">
+                      <h4 class="font-mono text-[11px] uppercase tracking-wider text-neutral-500 dark:text-[#9BA5B7] mb-4 flex items-center gap-1.5 pt-2">
                         <span>📷</span>
-                        <span>Dokumentasi Foto Hasil Editing</span>
+                        <span>Dokumentasi Foto Hasil Karya (Klik untuk Perbesar)</span>
                       </h4>
                     ` : ''}
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+                    
+                    <!-- Responsive Masonry Grid (Preserves Original Image Dimensions & Ratio) -->
+                    <div class="columns-1 sm:columns-2 lg:columns-3 gap-3.5 sm:gap-4 space-y-3.5 sm:space-y-4">
                       ${otherItems.map((item, idx) => {
                         const isObj = typeof item === 'object' && item !== null;
-                        const isLandscape = isObj && (item.span === 2 || item.span === 'full' || item.aspect === 'landscape');
-                        const isFull = isObj && item.span === 'full';
                         const src = isObj ? item.url : item;
-
-                        const colSpanClass = isFull
-                          ? 'col-span-2 md:col-span-4'
-                          : (isLandscape ? 'col-span-2 md:col-span-2' : 'col-span-1');
-
-                        const aspectClass = (isLandscape || isFull) ? 'aspect-[16/10]' : 'aspect-square sm:aspect-[4/5]';
+                        const caption = (projectBase.title || 'Dokumentasi Visual') + ' #' + (idx + 1);
 
                         return `
-                          <div class="${colSpanClass} group relative overflow-hidden rounded-xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 p-1.5 sm:p-2 shadow-sm hover:shadow-lg transition-all duration-300">
-                            <div class="${aspectClass} w-full overflow-hidden rounded-lg bg-neutral-900 flex items-center justify-center">
+                          <div 
+                            onclick="openImageLightbox('${src}', '${caption}')" 
+                            class="break-inside-avoid group relative overflow-hidden rounded-2xl bg-white dark:bg-[#151D2C] border border-black/10 dark:border-white/10 p-2 shadow-sm hover:shadow-xl hover:border-[#2D46EC]/50 dark:hover:border-[#5B73FF]/50 transition-all duration-300 cursor-pointer"
+                            title="Klik untuk melihat pratinjau penuh"
+                          >
+                            <div class="w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-black/30 relative flex items-center justify-center">
                               <img
                                 src="${src}"
-                                alt="${projectBase.title || 'Visual'} ${idx + 1}"
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="${caption}"
+                                class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                                 loading="lazy"
-                                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80';"
                               />
+                              <!-- Hover Overlay Badge -->
+                              <div class="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-center justify-center gap-2 text-white font-mono text-xs font-semibold backdrop-blur-[1px]">
+                                <span class="p-2 rounded-full bg-white/20 border border-white/30">
+                                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                                  </svg>
+                                </span>
+                                <span>Lihat Penuh</span>
+                              </div>
                             </div>
                           </div>
                         `;
                       }).join('')}
                     </div>
                   </div>
-                ` : ''}
-              </div>
+                ` : ''}</div>
             `;
           })() : ''}
 
@@ -2847,6 +2874,56 @@
         if (PROJECTS_DATA[initialId]) openProjectDetail(initialId, false);
       }
     })();
+  
+    // =================================================================
+    // IMAGE LIGHTBOX PREVIEW CONTROLLER
+    // =================================================================
+    function openImageLightbox(src, caption = '') {
+      const modal = document.getElementById('image-lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+
+      if (!modal || !img) return;
+
+      img.src = src;
+      img.alt = caption;
+      if (cap) cap.textContent = caption;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      stopAutoSlide();
+    }
+
+    function closeImageLightbox() {
+      const modal = document.getElementById('image-lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+
+      if (!modal) return;
+
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      if (img) img.src = '';
+      document.body.style.overflow = '';
+      startAutoSlide();
+    }
+
+    function handleLightboxBackdropClick(event) {
+      if (event.target.id === 'image-lightbox-modal') {
+        closeImageLightbox();
+      }
+    }
+
+    // Keyboard support for Lightbox
+    window.addEventListener('keydown', (e) => {
+      const lightboxModal = document.getElementById('image-lightbox-modal');
+      if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeImageLightbox();
+        }
+      }
+    });
+
   </script>
 </body>
 </html>
